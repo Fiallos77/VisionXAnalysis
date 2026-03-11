@@ -1,0 +1,122 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  * {
+    box-sizing: border-box;
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  ::selection {
+    background-color: rgba(0, 229, 160, 0.2);
+    color: #00E5A0;
+  }
+
+  ::-webkit-scrollbar {
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background: #080B0F;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background: #1A2330;
+    border-radius: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb:hover {
+    background: #00E5A0;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-6 md:px-10 lg:px-16 xl:px-20;
+  }
+
+  .section-spacing {
+    @apply py-20 md:py-28;
+  }
+
+  .label-tag {
+    @apply font-mono text-xs tracking-[0.2em] uppercase text-accent-green;
+  }
+
+  .display-heading {
+    @apply font-display font-bold tracking-tight leading-none;
+  }
+
+  .card-base {
+    @apply bg-pitch-card border border-pitch-border rounded-xl overflow-hidden;
+  }
+
+  .btn-primary {
+    @apply inline-flex items-center gap-2 px-6 py-3 bg-accent-green text-pitch-black font-display font-semibold text-sm uppercase tracking-wider rounded-lg hover:bg-accent-green-dim transition-colors duration-200;
+  }
+
+  .btn-outline {
+    @apply inline-flex items-center gap-2 px-6 py-3 border border-pitch-border text-text-primary font-display font-semibold text-sm uppercase tracking-wider rounded-lg hover:border-accent-green hover:text-accent-green transition-colors duration-200;
+  }
+
+  .nav-link {
+    @apply font-display font-medium text-sm uppercase tracking-widest text-text-secondary hover:text-text-primary transition-colors duration-200;
+  }
+
+  .input-field {
+    @apply w-full bg-pitch-muted border border-pitch-border rounded-lg px-4 py-3 text-text-primary font-body text-sm placeholder-text-muted focus:outline-none focus:border-accent-green transition-colors duration-200;
+  }
+}
+
+@layer utilities {
+  .noise-overlay::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none;
+    opacity: 0.05;
+  }
+
+  .pitch-grid {
+    background-image: linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+                      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+    background-size: 48px 48px;
+  }
+
+  .text-gradient-green {
+    background: linear-gradient(135deg, #00E5A0 0%, #0FA4FF 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .glow-green {
+    box-shadow: 0 0 30px rgba(0, 229, 160, 0.15);
+  }
+
+  .glow-text-green {
+    text-shadow: 0 0 20px rgba(0, 229, 160, 0.4);
+  }
+
+  .border-gradient {
+    position: relative;
+  }
+
+  .border-gradient::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    padding: 1px;
+    border-radius: inherit;
+    background: linear-gradient(135deg, rgba(0,229,160,0.4), transparent, rgba(15,164,255,0.2));
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: destination-out;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
