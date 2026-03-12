@@ -330,7 +330,7 @@ export default function ServicesPage() {
                                 className="text-text-secondary text-xs leading-relaxed"
                                 dangerouslySetInnerHTML={{ __html: item.text }}
                               />
-                              {item.sub && (
+                              {"sub" in item && item.sub && (
                                 <div className="mt-1.5 flex flex-col gap-1 pl-1">
                                   {item.sub.map((s) => (
                                     <div
