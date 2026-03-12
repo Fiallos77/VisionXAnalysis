@@ -1,44 +1,44 @@
-'use client'
+"use client";
 
-import { useState, useEffect } from 'react'
-import Link from 'next/link'
-import { usePathname } from 'next/navigation'
-import { motion, AnimatePresence } from 'framer-motion'
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
+import { motion, AnimatePresence } from "framer-motion";
 
 const navLinks = [
-  { href: '/', label: 'Home' },
-  { href: '/analysis', label: 'Analysis' },
-  { href: '/players', label: 'Players' },
-  { href: '/methodology', label: 'Methodology' },
-  { href: '/about', label: 'About Vision X' },
-  { href: '/contact', label: 'Contact' },
-]
+  { href: "/", label: "Home" },
+  { href: "/players", label: "Players" },
+  { href: "/methodology", label: "Methodology" },
+  { href: "/about", label: "About Vision X" },
+  { href: "/services", label: "Services" },
+  { href: "/contact", label: "Contact" },
+];
 
 export default function Navbar() {
-  const [scrolled, setScrolled] = useState(false)
-  const [menuOpen, setMenuOpen] = useState(false)
-  const pathname = usePathname()
+  const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
-    const handleScroll = () => setScrolled(window.scrollY > 40)
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+    const handleScroll = () => setScrolled(window.scrollY > 40);
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
-    setMenuOpen(false)
-  }, [pathname])
+    setMenuOpen(false);
+  }, [pathname]);
 
   return (
     <>
       <motion.header
         initial={{ y: -20, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.6, ease: 'easeOut' }}
+        transition={{ duration: 0.6, ease: "easeOut" }}
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
           scrolled
-            ? 'bg-pitch-black/90 backdrop-blur-xl border-b border-pitch-border'
-            : 'bg-transparent'
+            ? "bg-pitch-black/90 backdrop-blur-xl border-b border-pitch-border"
+            : "bg-transparent"
         }`}
       >
         <div className="container-px max-w-screen-xl mx-auto">
@@ -66,13 +66,15 @@ export default function Navbar() {
                   key={link.href}
                   href={link.href}
                   className={`nav-link relative group ${
-                    pathname === link.href ? 'text-text-primary' : ''
+                    pathname === link.href ? "text-text-primary" : ""
                   }`}
                 >
                   {link.label}
                   <span
                     className={`absolute -bottom-1 left-0 h-px bg-accent-green transition-all duration-300 ${
-                      pathname === link.href ? 'w-full' : 'w-0 group-hover:w-full'
+                      pathname === link.href
+                        ? "w-full"
+                        : "w-0 group-hover:w-full"
                     }`}
                   />
                 </Link>
@@ -81,7 +83,10 @@ export default function Navbar() {
 
             {/* CTA + Mobile Toggle */}
             <div className="flex items-center gap-4">
-              <Link href="/contact" className="hidden md:inline-flex btn-primary text-xs py-2 px-4">
+              <Link
+                href="/contact"
+                className="hidden md:inline-flex btn-primary text-xs py-2 px-4"
+              >
                 Request Analysis
               </Link>
               <button
@@ -91,17 +96,17 @@ export default function Navbar() {
               >
                 <span
                   className={`block h-px w-6 bg-text-primary transition-transform duration-300 ${
-                    menuOpen ? 'rotate-45 translate-y-2' : ''
+                    menuOpen ? "rotate-45 translate-y-2" : ""
                   }`}
                 />
                 <span
                   className={`block h-px w-4 bg-text-primary transition-opacity duration-300 ${
-                    menuOpen ? 'opacity-0' : ''
+                    menuOpen ? "opacity-0" : ""
                   }`}
                 />
                 <span
                   className={`block h-px w-6 bg-text-primary transition-transform duration-300 ${
-                    menuOpen ? '-rotate-45 -translate-y-2.5' : ''
+                    menuOpen ? "-rotate-45 -translate-y-2.5" : ""
                   }`}
                 />
               </button>
@@ -132,8 +137,8 @@ export default function Navbar() {
                     href={link.href}
                     className={`block py-3 font-display font-medium text-base uppercase tracking-widest border-b border-pitch-border/50 ${
                       pathname === link.href
-                        ? 'text-accent-green'
-                        : 'text-text-secondary hover:text-text-primary'
+                        ? "text-accent-green"
+                        : "text-text-secondary hover:text-text-primary"
                     } transition-colors`}
                   >
                     {link.label}
@@ -141,7 +146,10 @@ export default function Navbar() {
                 </motion.div>
               ))}
               <div className="pt-4">
-                <Link href="/contact" className="btn-primary w-full justify-center">
+                <Link
+                  href="/contact"
+                  className="btn-primary w-full justify-center"
+                >
                   Request Analysis
                 </Link>
               </div>
@@ -150,5 +158,5 @@ export default function Navbar() {
         )}
       </AnimatePresence>
     </>
-  )
+  );
 }
