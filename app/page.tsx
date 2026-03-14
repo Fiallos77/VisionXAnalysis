@@ -256,7 +256,7 @@ export default function HomePage() {
           <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-pitch-black to-transparent" />
 
           <div className="flex gap-16 animate-marquee whitespace-nowrap">
-            {[...clubs, ...clubs, ...clubs].map((club, i) => (
+            {[...clubs, ...clubs].map((club, i) => (
               <div
                 key={i}
                 className="flex flex-col items-center gap-3 group inline-flex shrink-0"
