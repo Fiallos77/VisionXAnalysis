@@ -10,7 +10,7 @@ import { players } from "@/lib/data";
 const clubs = [
   { name: "FC Barcelona Academy", img: "/images/barca.png" },
   { name: "Brisbane Roar", img: "/images/broar.png" },
-  { name: "Barcelona SC Academy", img: "/images/bsc.png" },
+  { name: "Aston Villa", img: "/images/Aston.png" },
   { name: "Espanyol", img: "/images/espanol.png" },
   { name: "Espoli", img: "/images/Espoli.png" },
   { name: "Barcelona SC", img: "/images/LogoEscuela.png" },
