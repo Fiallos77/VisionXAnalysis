@@ -224,50 +224,59 @@ export default function HomePage() {
       </section>
 
       {/* ─── CLUBS ─── */}
-      <section className="section-spacing container-px max-w-screen-xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6 }}
-          className="text-center mb-14"
-        >
-          <div className="flex items-center justify-center gap-3 mb-3">
-            <span className="w-6 h-px bg-accent-green" />
-            <span className="label-tag">Club Network</span>
-            <span className="w-6 h-px bg-accent-green" />
-          </div>
-          <h2 className="display-heading text-3xl md:text-4xl xl:text-5xl text-text-primary mb-4">
-            Clubs We've Worked With
-          </h2>
-          <p className="text-text-secondary text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-            Our player profiles and scouting reports have reached clubs across
-            Europe and beyond. These are some of the organisations that have
-            engaged with Vision X Analysis.
-          </p>
-        </motion.div>
-        <div className="grid grid-cols-3 sm:grid-cols-4 md:grid-cols-6 gap-8 md:gap-10">
-          {clubs.map((club, i) => (
-            <motion.div
-              key={club.name}
-              initial={{ opacity: 0, y: 16 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.05, duration: 0.4 }}
-            >
-              <ClubBadge club={club} />
-            </motion.div>
-          ))}
+      <section className="section-spacing border-t border-pitch-border overflow-hidden">
+        <div className="container-px max-w-screen-xl mx-auto mb-14">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center"
+          >
+            <div className="flex items-center justify-center gap-3 mb-3">
+              <span className="w-6 h-px bg-accent-green" />
+              <span className="label-tag">Club Network</span>
+              <span className="w-6 h-px bg-accent-green" />
+            </div>
+            <h2 className="display-heading text-3xl md:text-4xl xl:text-5xl text-text-primary mb-4">
+              Clubs We've Worked With
+            </h2>
+            <p className="text-text-secondary text-sm md:text-base max-w-xl mx-auto leading-relaxed">
+              Our player profiles and scouting reports have reached clubs across
+              Europe, South América and beyond.
+            </p>
+          </motion.div>
         </div>
-        <motion.p
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          viewport={{ once: true }}
-          transition={{ delay: 0.4 }}
-          className="text-center font-mono text-[10px] tracking-widest text-text-muted uppercase mt-12"
-        >
-          * Logos shown are illustrative examples of clubs in our network
-        </motion.p>
+
+        {/* Carrusel infinito */}
+        <div className="relative w-full">
+          {/* Fade izquierda */}
+          <div className="absolute left-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-r from-pitch-black to-transparent" />
+          {/* Fade derecha */}
+          <div className="absolute right-0 top-0 bottom-0 w-24 z-10 pointer-events-none bg-gradient-to-l from-pitch-black to-transparent" />
+
+          <div className="flex gap-16 animate-marquee whitespace-nowrap">
+            {[...clubs, ...clubs, ...clubs].map((club, i) => (
+              <div
+                key={i}
+                className="flex flex-col items-center gap-3 group inline-flex shrink-0"
+              >
+                <div className="relative w-20 h-20 flex items-center justify-center">
+                  <Image
+                    src={club.img}
+                    alt={club.name}
+                    width={80}
+                    height={80}
+                    className="object-contain w-full h-full drop-shadow-lg group-hover:drop-shadow-[0_0_12px_rgba(0,229,160,0.3)] transition-all duration-300"
+                  />
+                </div>
+                <span className="font-mono text-[10px] tracking-widest text-text-muted uppercase group-hover:text-text-secondary transition-colors duration-200 text-center leading-tight">
+                  {club.name}
+                </span>
+              </div>
+            ))}
+          </div>
+        </div>
       </section>
 
       {/* ─── ABOUT SNIPPET ─── */}
