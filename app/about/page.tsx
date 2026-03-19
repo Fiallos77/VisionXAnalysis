@@ -1,9 +1,9 @@
-'use client'
+"use client";
 
-import { motion } from 'framer-motion'
-import Link from 'next/link'
-import PageTransition from '@/components/PageTransition'
-import SectionHeader from '@/components/SectionHeader'
+import { motion } from "framer-motion";
+import Link from "next/link";
+import PageTransition from "@/components/PageTransition";
+import SectionHeader from "@/components/SectionHeader";
 
 export default function AboutPage() {
   return (
@@ -19,7 +19,11 @@ export default function AboutPage() {
               title="An Analysis Project Built on Football Observation"
             />
             <p className="text-text-secondary leading-relaxed text-base mt-4 max-w-2xl">
-              Vision X Analysis is an independent football scouting and video analysis project. We do not represent clubs, agencies or players. Our work is driven entirely by an interest in understanding football — how players move, decide, adapt and contribute within structured systems.
+              Vision X Analysis is an independent football scouting and video
+              analysis project. We do not represent clubs, agencies or players.
+              Our work is driven entirely by an interest in understanding
+              football — how players move, decide, adapt and contribute within
+              structured systems.
             </p>
           </div>
         </section>
@@ -37,19 +41,32 @@ export default function AboutPage() {
               <div>
                 <div className="label-tag mb-3">What We Do</div>
                 <p className="text-text-secondary leading-relaxed">
-                  We observe professional and semi-professional players across multiple performances, then produce video analysis profiles that break down technical qualities, positional behaviour, tactical contribution and areas for development. Our profiles are built from sustained observation — not statistical summaries or brief highlights.
+                  We observe professional and semi-professional players across
+                  multiple performances, then produce video analysis profiles
+                  that break down technical qualities, positional behaviour,
+                  tactical contribution and areas for development. Our profiles
+                  are built from sustained observation — not statistical
+                  summaries or brief highlights.
                 </p>
               </div>
               <div>
                 <div className="label-tag mb-3">Why We Do It</div>
                 <p className="text-text-secondary leading-relaxed">
-                  Football analysis is growing rapidly, but much of what exists prioritises production over substance. Vision X was created to offer a different approach — rigorous, contextual, and direct. We are interested in players who do not always appear in the right environments, and in making their qualities visible and documented.
+                  Football analysis is growing rapidly, but much of what exists
+                  prioritises production over substance. Vision X was created to
+                  offer a different approach — rigorous, contextual, and direct.
+                  We are interested in players who do not always appear in the
+                  right environments, and in making their qualities visible and
+                  documented.
                 </p>
               </div>
               <div>
                 <div className="label-tag mb-3">Who Is It For</div>
                 <p className="text-text-secondary leading-relaxed">
-                  Our analysis is relevant to coaches, scouts, directors and analysts who value evidence-based player assessment. We also publish openly because we believe well-documented work has value beyond any single transaction.
+                  Our analysis is relevant to coaches, scouts, directors and
+                  analysts who value evidence-based player assessment. We also
+                  publish openly because we believe well-documented work has
+                  value beyond any single transaction.
                 </p>
               </div>
             </motion.div>
@@ -63,10 +80,26 @@ export default function AboutPage() {
             >
               {/* Values cards */}
               {[
-                { icon: '◈', title: 'Independent', body: 'No affiliations, sponsorships or commercial relationships that influence the content of our analysis.' },
-                { icon: '◉', title: 'Observation-First', body: 'We always begin with hours of full-match observation before selecting clips or writing conclusions.' },
-                { icon: '◫', title: 'Context-Driven', body: 'Every player action is evaluated within the match state, the system in use and the opponent\'s structure.' },
-                { icon: '◳', title: 'Precise Language', body: 'We write to describe accurately, not to impress. Our conclusions are supported by the footage we reference.' },
+                {
+                  icon: "◈",
+                  title: "Independent",
+                  body: "No affiliations, sponsorships or commercial relationships that influence the content of our analysis.",
+                },
+                {
+                  icon: "◉",
+                  title: "Observation-First",
+                  body: "We always begin with hours of full-match observation before selecting clips or writing conclusions.",
+                },
+                {
+                  icon: "◫",
+                  title: "Context-Driven",
+                  body: "Every player action is evaluated within the match state, the system in use and the opponent's structure.",
+                },
+                {
+                  icon: "◳",
+                  title: "Precise Language",
+                  body: "We write to describe accurately, not to impress. Our conclusions are supported by the footage we reference.",
+                },
               ].map((val, i) => (
                 <motion.div
                   key={val.title}
@@ -76,10 +109,16 @@ export default function AboutPage() {
                   transition={{ delay: i * 0.08, duration: 0.4 }}
                   className="card-base p-5 flex gap-4 items-start"
                 >
-                  <span className="text-accent-green text-xl shrink-0 mt-0.5">{val.icon}</span>
+                  <span className="text-accent-green text-xl shrink-0 mt-0.5">
+                    {val.icon}
+                  </span>
                   <div>
-                    <div className="font-display font-bold text-text-primary mb-1">{val.title}</div>
-                    <p className="text-text-secondary text-sm leading-relaxed">{val.body}</p>
+                    <div className="font-display font-bold text-text-primary mb-1">
+                      {val.title}
+                    </div>
+                    <p className="text-text-secondary text-sm leading-relaxed">
+                      {val.body}
+                    </p>
                   </div>
                 </motion.div>
               ))}
@@ -92,17 +131,94 @@ export default function AboutPage() {
           <div className="container-px max-w-screen-xl mx-auto py-20">
             <div className="grid md:grid-cols-3 gap-px bg-pitch-border rounded-xl overflow-hidden border border-pitch-border">
               {[
-                { label: 'Coverage', value: 'Regional to international level', tag: 'Scope' },
-                { label: 'Format', value: 'Video breakdown + written report', tag: 'Deliverable' },
-                { label: 'Languages', value: 'English — more planned', tag: 'Output' },
+                {
+                  label: "Coverage",
+                  value: "Regional to international level",
+                  tag: "Scope",
+                },
+                {
+                  label: "Format",
+                  value: "Video breakdown + written report",
+                  tag: "Deliverable",
+                },
+                {
+                  label: "Languages",
+                  value: "English — more planned",
+                  tag: "Output",
+                },
               ].map((item) => (
                 <div key={item.label} className="bg-pitch-dark p-8">
                   <div className="label-tag mb-3">{item.tag}</div>
-                  <div className="font-display font-bold text-xl text-text-primary">{item.value}</div>
+                  <div className="font-display font-bold text-xl text-text-primary">
+                    {item.value}
+                  </div>
                 </div>
               ))}
             </div>
           </div>
+        </section>
+
+        {/* ─── PDF DOWNLOAD ─── */}
+        <section className="container-px max-w-screen-xl mx-auto py-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="card-base border-gradient p-6 flex flex-col sm:flex-row items-center gap-5"
+          >
+            {/* PDF Icon */}
+            <div className="w-12 h-12 rounded-lg bg-accent-green/10 border border-accent-green/20 flex items-center justify-center shrink-0">
+              <svg
+                className="w-6 h-6 text-accent-green"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+
+            {/* Text */}
+            <div className="flex-1 text-center sm:text-left">
+              <div className="label-tag mb-1">Downloadable Guide</div>
+              <div className="font-display font-bold text-lg text-text-primary">
+                Vision X — Player Services Guide
+              </div>
+              <p className="text-text-secondary text-xs mt-1">
+                Everything you need to know about our analysis packages, process
+                and what we deliver.
+              </p>
+            </div>
+
+            {/* Button */}
+
+            <a
+              href="/docs/vision-x-guide.pdf"
+              download
+              className="btn-primary shrink-0"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Download PDF
+            </a>
+          </motion.div>
         </section>
 
         {/* CTA */}
@@ -117,15 +233,21 @@ export default function AboutPage() {
               Want to Work with Vision X?
             </h2>
             <p className="text-text-secondary mb-8 text-sm leading-relaxed">
-              We are open to analysis requests from clubs, coaches and scouts. If you are looking for an independent assessment of a player, get in touch.
+              We are open to analysis requests from clubs, coaches and scouts.
+              If you are looking for an independent assessment of a player, get
+              in touch.
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <Link href="/contact" className="btn-primary">Contact Us</Link>
-              <Link href="/methodology" className="btn-outline">Read Methodology</Link>
+              <Link href="/contact" className="btn-primary">
+                Contact Us
+              </Link>
+              <Link href="/methodology" className="btn-outline">
+                Read Methodology
+              </Link>
             </div>
           </motion.div>
         </section>
       </div>
     </PageTransition>
-  )
+  );
 }

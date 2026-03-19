@@ -5,7 +5,7 @@ import { motion } from 'framer-motion'
 import PageTransition from '@/components/PageTransition'
 import SectionHeader from '@/components/SectionHeader'
 
-type Category = 'player' | 'coach' | 'club' | ''
+type Category = 'player' | ''
 
 export default function ContactPage() {
   const [submitted, setSubmitted] = useState(false)
@@ -25,8 +25,6 @@ export default function ContactPage() {
 
   const categories: { value: Category; label: string; desc: string }[] = [
     { value: 'player', label: 'Player', desc: 'Request a personal analysis' },
-    { value: 'coach', label: 'Coach', desc: 'Analysis for your squad' },
-    { value: 'club', label: 'Club / Scout', desc: 'Player identification & profiling' },
   ]
 
   return (
@@ -39,7 +37,7 @@ export default function ContactPage() {
             <SectionHeader
               tag="Get In Touch"
               title="Contact Vision X"
-              subtitle="Clubs, coaches and scouts are welcome to get in touch regarding analysis requests, player profiles or collaboration enquiries."
+              subtitle="If you're a player looking to take the next step in your career, request your personalized performance analysis, the creation of your professional profile, or consultations on strategic collaboration."
             />
           </div>
         </section>
