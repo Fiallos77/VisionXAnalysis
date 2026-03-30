@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import { notFound } from 'next/navigation'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import PageTransition from '@/components/PageTransition'
-import { players, analyses } from '@/lib/data'
+import { notFound } from "next/navigation";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import PageTransition from "@/components/PageTransition";
+import { players, analyses } from "@/lib/data";
 
 interface Props {
-  params: { id: string }
+  params: { id: string };
 }
 
 export default function PlayerProfilePage({ params }: Props) {
-  const player = players.find((p) => p.id === params.id)
-  if (!player) return notFound()
+  const player = players.find((p) => p.id === params.id);
+  if (!player) return notFound();
 
-  const playerAnalyses = analyses.filter((a) => a.playerId === player.id)
+  const playerAnalyses = analyses.filter((a) => a.playerId === player.id);
 
   return (
     <PageTransition>
@@ -22,9 +22,19 @@ export default function PlayerProfilePage({ params }: Props) {
         {/* Breadcrumb */}
         <div className="container-px max-w-screen-xl mx-auto pt-8 pb-4">
           <div className="flex items-center gap-2 font-mono text-xs text-text-muted">
-            <Link href="/" className="hover:text-accent-green transition-colors">Home</Link>
+            <Link
+              href="/"
+              className="hover:text-accent-green transition-colors"
+            >
+              Home
+            </Link>
             <span>/</span>
-            <Link href="/players" className="hover:text-accent-green transition-colors">Players</Link>
+            <Link
+              href="/players"
+              className="hover:text-accent-green transition-colors"
+            >
+              Players
+            </Link>
             <span>/</span>
             <span className="text-text-secondary">{player.name}</span>
           </div>
@@ -49,7 +59,9 @@ export default function PlayerProfilePage({ params }: Props) {
                 <div className="absolute inset-0 bg-gradient-to-t from-pitch-black/70 via-transparent to-transparent" />
                 <div className="absolute bottom-4 left-4">
                   <div className="w-2 h-2 rounded-full bg-accent-green mb-1" />
-                  <div className="font-mono text-[9px] tracking-widest text-accent-green uppercase">Active Profile</div>
+                  <div className="font-mono text-[9px] tracking-widest text-accent-green uppercase">
+                    Active Profile
+                  </div>
                 </div>
               </div>
             </motion.div>
@@ -68,11 +80,11 @@ export default function PlayerProfilePage({ params }: Props) {
               {/* Stats grid */}
               <div className="grid grid-cols-3 md:grid-cols-5 gap-px bg-pitch-border rounded-xl overflow-hidden border border-pitch-border mb-6">
                 {[
-                  { label: 'Age', value: player.age.toString() },
-                  { label: 'Height', value: player.height },
-                  { label: 'Foot', value: player.foot },
-                  { label: 'Club', value: player.club },
-                  { label: 'Nationality', value: player.nationality },
+                  { label: "Age", value: player.age.toString() },
+                  { label: "Height", value: player.height },
+                  { label: "Foot", value: player.foot },
+                  { label: "Club", value: player.club },
+                  { label: "Nationality", value: player.nationality },
                 ].map((stat) => (
                   <div key={stat.label} className="bg-pitch-dark px-4 py-3">
                     <div className="font-display font-bold text-text-primary text-sm md:text-base leading-tight mb-0.5">
@@ -91,8 +103,18 @@ export default function PlayerProfilePage({ params }: Props) {
 
               <Link href="/contact" className="btn-primary">
                 Request Full Report
-                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
+                <svg
+                  className="w-4 h-4"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M17 8l4 4m0 0l-4 4m4-4H3"
+                  />
                 </svg>
               </Link>
             </motion.div>
@@ -102,15 +124,16 @@ export default function PlayerProfilePage({ params }: Props) {
         {/* ─── Main Video ─── */}
         <section className="container-px max-w-screen-xl mx-auto py-10">
           <div className="label-tag mb-4">Analysis Video</div>
-          <div className="relative aspect-video bg-pitch-card border border-pitch-border rounded-xl overflow-hidden">
-            <div className="absolute inset-0 flex flex-col items-center justify-center gap-4">
-              <div className="w-16 h-16 rounded-full border-2 border-accent-green flex items-center justify-center bg-pitch-black/60 backdrop-blur-sm">
-                <svg className="w-7 h-7 text-accent-green ml-1" fill="currentColor" viewBox="0 0 24 24">
-                  <path d="M8 5v14l11-7z" />
-                </svg>
-              </div>
-              <span className="font-mono text-xs text-text-muted tracking-widest">Main Profile Video</span>
-            </div>
+          <div className="relative aspect-video rounded-xl overflow-hidden border border-pitch-border">
+            <iframe
+              src={`${player.videoUrl}?rel=0&modestbranding=1`}
+              title={`${player.name} Analysis`}
+              allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+              allowFullScreen
+              className="w-full h-full"
+            />
+            {/* Capa que bloquea clic en logo de YouTube */}
+            <div className="absolute bottom-0 right-0 w-32 h-12 z-10" />
           </div>
         </section>
 
@@ -155,9 +178,22 @@ export default function PlayerProfilePage({ params }: Props) {
               </div>
               <ul className="space-y-3">
                 {player.strengths.map((s) => (
-                  <li key={s} className="flex items-start gap-3 text-text-secondary text-sm">
-                    <svg className="w-4 h-4 text-accent-green shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                  <li
+                    key={s}
+                    className="flex items-start gap-3 text-text-secondary text-sm"
+                  >
+                    <svg
+                      className="w-4 h-4 text-accent-green shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M5 13l4 4L19 7"
+                      />
                     </svg>
                     {s}
                   </li>
@@ -169,13 +205,28 @@ export default function PlayerProfilePage({ params }: Props) {
             <div className="card-base p-6">
               <div className="flex items-center gap-2 mb-5">
                 <span className="w-2 h-2 rounded-full bg-accent-blue" />
-                <span className="label-tag text-accent-blue">Areas to Develop</span>
+                <span className="label-tag text-accent-blue">
+                  Areas to Develop
+                </span>
               </div>
               <ul className="space-y-3">
                 {player.improvements.map((s) => (
-                  <li key={s} className="flex items-start gap-3 text-text-secondary text-sm">
-                    <svg className="w-4 h-4 text-accent-blue shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7l5 5m0 0l-5 5m5-5H6" />
+                  <li
+                    key={s}
+                    className="flex items-start gap-3 text-text-secondary text-sm"
+                  >
+                    <svg
+                      className="w-4 h-4 text-accent-blue shrink-0 mt-0.5"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M13 7l5 5m0 0l-5 5m5-5H6"
+                      />
                     </svg>
                     {s}
                   </li>
@@ -197,23 +248,36 @@ export default function PlayerProfilePage({ params }: Props) {
                   className="card-base flex gap-4 p-4 group hover:border-pitch-muted transition-colors duration-200"
                 >
                   <div className="relative shrink-0 w-28 h-16 rounded-lg overflow-hidden bg-pitch-muted">
-                    <img src={analysis.thumbnailUrl} alt={analysis.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300" />
+                    <img
+                      src={analysis.thumbnailUrl}
+                      alt={analysis.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                    />
                     <div className="absolute inset-0 flex items-center justify-center">
                       <div className="w-7 h-7 rounded-full bg-pitch-black/60 flex items-center justify-center border border-accent-green/50">
-                        <svg className="w-3 h-3 text-accent-green ml-0.5" fill="currentColor" viewBox="0 0 24 24">
+                        <svg
+                          className="w-3 h-3 text-accent-green ml-0.5"
+                          fill="currentColor"
+                          viewBox="0 0 24 24"
+                        >
                           <path d="M8 5v14l11-7z" />
                         </svg>
                       </div>
                     </div>
                   </div>
                   <div>
-                    <div className="font-mono text-[10px] text-accent-green tracking-widest uppercase mb-1">{analysis.duration}</div>
+                    <div className="font-mono text-[10px] text-accent-green tracking-widest uppercase mb-1">
+                      {analysis.duration}
+                    </div>
                     <div className="font-display font-semibold text-text-primary text-sm group-hover:text-accent-green transition-colors duration-200">
                       {analysis.title}
                     </div>
                     <div className="flex gap-1.5 flex-wrap mt-1.5">
                       {analysis.tags.map((t) => (
-                        <span key={t} className="font-mono text-[9px] px-1.5 py-0.5 bg-pitch-muted text-text-muted rounded">
+                        <span
+                          key={t}
+                          className="font-mono text-[9px] px-1.5 py-0.5 bg-pitch-muted text-text-muted rounded"
+                        >
                           {t}
                         </span>
                       ))}
@@ -234,7 +298,8 @@ export default function PlayerProfilePage({ params }: Props) {
                 Request the Full Analysis Report
               </h3>
               <p className="text-text-secondary text-sm mt-1">
-                Get in touch to receive detailed documentation and additional footage.
+                Get in touch to receive detailed documentation and additional
+                footage.
               </p>
             </div>
             <Link href="/contact" className="btn-primary shrink-0">
@@ -244,5 +309,5 @@ export default function PlayerProfilePage({ params }: Props) {
         </section>
       </div>
     </PageTransition>
-  )
+  );
 }
