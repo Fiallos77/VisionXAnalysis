@@ -34,15 +34,15 @@ const requirements = [
 
 const plans = [
   {
-    tier: "🟢 Basic",
-    name: "Performance Clip",
-    tagline: "See everything you did in the match",
+    tier: "🟢 ID",
+    name: "Identification",
+    tagline: "For the player who needs to be seen",
     delivery: "48 hours",
     tools: "Nacsport · Python · Power BI · SQL",
     color: "green",
     includes: [
       { text: "<strong>1 match</strong> analysed" },
-      { text: "All <strong>player actions</strong> clipped and compiled" },
+      { text: "Compilated <strong>ball</strong> involvements" },
       { text: "<strong>Highlight video</strong> (3–5 min)" },
       { text: "<strong>Brief text comments</strong> on key actions" },
     ],
@@ -57,15 +57,15 @@ const plans = [
     rating: null,
   },
   {
-    tier: "⚡ Pro",
-    name: "Technical Analysis",
-    tagline: "Full breakdown of your game",
+    tier: "📊 ANALYST",
+    name: "Technical Breakdown",
+    tagline: "For the player already on the radar",
     delivery: "3–4 days",
     tools: "Nacsport · Python · Power BI · SQL",
     color: "blue",
     badge: "Most Popular",
     includes: [
-      { text: "<strong>1 full match</strong> complete analysis" },
+      { text: "<strong>1 full match </strong> technical analysis" },
       {
         text: "<strong>Technical analysis</strong> covering:",
         sub: [
@@ -89,10 +89,10 @@ const plans = [
     rating: null,
   },
   {
-    tier: "👑 Elite",
-    name: "Scout Report",
-    tagline: "Professional document to send to clubs",
-    delivery: "5–7 days",
+    tier: "🛡 SCOUT",
+    name: "Full Intelligence Report",
+    tagline: "The definitive document for a transfer",
+    delivery: "5–10 days",
     tools: "Nacsport · Python · Power BI · SQL",
     color: "gold",
     includes: [
@@ -112,7 +112,6 @@ const plans = [
     extras: [
       "Shareable player profile page on visionx.com",
       "Downloadable PDF scout document",
-      "Direct link to send to clubs & agents",
     ],
     rating: [
       { label: "Technical", value: 82 },
@@ -418,7 +417,7 @@ export default function ServicesPage() {
                           <div
                             className={`font-mono text-[10px] tracking-widest uppercase mb-3 ${c.tier}`}
                           >
-                            Player Rating Included
+                            Performance Index
                           </div>
                           <div className="flex flex-col gap-2">
                             {plan.rating.map((r) => (
@@ -500,6 +499,96 @@ export default function ServicesPage() {
               })}
             </div>
           </div>
+        </section>
+        {/* ─── AGENCIES ─── */}
+        <section className="container-px max-w-screen-xl mx-auto py-10">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-2xl border border-accent-blue/20 bg-pitch-dark p-8 md:p-10"
+          >
+            <div className="absolute inset-0 pitch-grid opacity-10 pointer-events-none" />
+            <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
+
+            <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
+              <div>
+                <div className="flex items-center gap-3 mb-4">
+                  <span className="w-6 h-px bg-accent-blue" />
+                  <span className="font-mono text-[10px] tracking-widest uppercase text-accent-blue">
+                    Partnerships
+                  </span>
+                </div>
+                <h3 className="display-heading text-2xl md:text-3xl text-text-primary mb-4">
+                  🤝 Alliances for Agencies & Academies
+                </h3>
+                <p className="text-text-secondary text-sm leading-relaxed mb-6 max-w-xl">
+                  Managing a player portfolio? We offer personalised
+                  subscription plans for monthly performance tracking — keeping
+                  your players' profiles updated with real data and evolution
+                  clips every week.
+                </p>
+                <div className="grid sm:grid-cols-3 gap-4">
+                  {[
+                    {
+                      icon: "📈",
+                      title: "Periodic Evolution Reports",
+                      body: "Regular analysis updates tracking player development over time.",
+                    },
+                    {
+                      icon: "⚙️",
+                      title: "Key Metrics Extraction",
+                      body: "Professional metrics pulled directly from match footage every round.",
+                    },
+                    {
+                      icon: "📊",
+                      title: "Cumulative Progress",
+                      body: "A clear record of growth and tactical evolution across the season.",
+                    },
+                  ].map((item) => (
+                    <div
+                      key={item.title}
+                      className="bg-pitch-card border border-pitch-border rounded-xl p-4"
+                    >
+                      <div className="text-xl mb-2">{item.icon}</div>
+                      <div className="font-display font-bold text-sm text-text-primary mb-1">
+                        {item.title}
+                      </div>
+                      <p className="text-text-secondary text-xs leading-relaxed">
+                        {item.body}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+
+              <div className="shrink-0 flex flex-col items-center md:items-end gap-3">
+                <Link
+                  href="/contact"
+                  className="inline-flex items-center gap-2 px-8 py-4 bg-accent-blue text-pitch-black font-display font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-accent-blue-dim transition-colors duration-200"
+                >
+                  Contact for Partner Plan
+                  <svg
+                    className="w-4 h-4"
+                    fill="none"
+                    stroke="currentColor"
+                    viewBox="0 0 24 24"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M17 8l4 4m0 0l-4 4m4-4H3"
+                    />
+                  </svg>
+                </Link>
+                <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
+                  Custom pricing available
+                </span>
+              </div>
+            </div>
+          </motion.div>
         </section>
 
         {/* ─── BOTTOM NOTE ─── */}
