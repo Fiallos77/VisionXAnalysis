@@ -15,6 +15,13 @@ export interface Player {
   improvements: string[];
   videoUrl: string;
   clips: AnalysisClip[];
+  attributes: {
+    technical: number;
+    positioning: number;
+    decisions: number;
+    physical: number;
+    defending: number;
+  };
 }
 
 export interface AnalysisClip {
@@ -47,6 +54,13 @@ export const players: Player[] = [
     foot: "Right",
     height: "1.82m",
     nationality: "German",
+    attributes: {
+      technical: 7.8,
+      positioning: 8.0,
+      decisions: 7.5,
+      physical: 7.0,
+      defending: 6.8,
+    },
     imageUrl:
       "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=400&h=400&fit=crop",
     description:
@@ -104,6 +118,13 @@ export const players: Player[] = [
     foot: "Left",
     height: "1.76m",
     nationality: "Portuguese",
+    attributes: {
+      technical: 7.8,
+      positioning: 8.0,
+      decisions: 7.5,
+      physical: 7.0,
+      defending: 6.8,
+    },
     imageUrl:
       "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=400&h=400&fit=crop",
     description:
@@ -148,6 +169,13 @@ export const players: Player[] = [
     height: "1.74m",
     nationality: "Peruvian",
     imageUrl: "/images/portada1.jpeg",
+    attributes: {
+      technical: 7.2,
+      positioning: 7.8,
+      decisions: 7.5,
+      physical: 8.5,
+      defending: 6.0,
+    },
     description:
       "Mateo Diez is a physically imposing centre forward with intelligent movement and a refined hold-up game. His ability to link play and bring teammates into the game sets him apart at regional level. Possesses a quality left foot and good aerial presence.",
     strengths: [
@@ -183,6 +211,13 @@ export const players: Player[] = [
     height: "1.85m",
     nationality: "Espanol",
     imageUrl: "/images/club.jpeg",
+    attributes: {
+      technical: 7,
+      positioning: 7,
+      decisions: 7.5,
+      physical: 8.5,
+      defending: 6.0,
+    },
     description:
       "Franco Insua is a direct and explosive winger with high dribbling success rates in 1v1 situations. Operating primarily on the right with his strong left foot, he is a constant threat in transition and excels at beating fullbacks to deliver from wide positions.",
     strengths: [
@@ -219,6 +254,13 @@ export const players: Player[] = [
     nationality: "Czech",
     imageUrl:
       "https://images.unsplash.com/photo-1504577949977-9d4e1fe9adf9?w=400&h=400&fit=crop",
+    attributes: {
+      technical: 8.5,
+      positioning: 7.0,
+      decisions: 7.8,
+      physical: 8.8,
+      defending: 5.5,
+    },
     description:
       "Jan Kopecký is a disciplined and well-structured defensive midfielder who offers excellent protection for his back four. His anticipation and positioning in the press allow him to win back possession efficiently. Competent in possession with short-range distribution.",
     strengths: [
@@ -255,6 +297,13 @@ export const players: Player[] = [
     nationality: "Finnish",
     imageUrl:
       "https://images.unsplash.com/photo-1528460033278-a6ba57020470?w=400&h=400&fit=crop",
+    attributes: {
+      technical: 6.8,
+      positioning: 8.5,
+      decisions: 8.0,
+      physical: 7.5,
+      defending: 8.8,
+    },
     description:
       "Sofia Mäkinen is a creative and technically refined attacking midfielder who thrives in the half-spaces. Her ability to combine quickly and find pockets of space behind the opposition midfield makes her a consistent threat in the final third. Strong defensive contribution for an attacking player.",
     strengths: [

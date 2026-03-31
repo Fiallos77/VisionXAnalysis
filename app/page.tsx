@@ -239,11 +239,12 @@ export default function HomePage() {
               <span className="w-6 h-px bg-accent-green" />
             </div>
             <h2 className="display-heading text-3xl md:text-4xl xl:text-5xl text-text-primary mb-4">
-              Clubs We've Worked With
+              Experience at Elite Institutions
             </h2>
             <p className="text-text-secondary text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Our player profiles and scouting reports have reached clubs across
-              Europe, South América and beyond.
+              Our analysts have worked within and alongside these institutions —
+              giving us direct insight into what elite clubs and academies
+              demand from a player profile.
             </p>
           </motion.div>
         </div>

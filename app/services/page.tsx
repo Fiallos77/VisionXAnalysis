@@ -38,6 +38,7 @@ const plans = [
     name: "Performance Clip",
     tagline: "See everything you did in the match",
     delivery: "48 hours",
+    tools: "Nacsport · Python · Power BI · SQL",
     color: "green",
     includes: [
       { text: "<strong>1 match</strong> analysed" },
@@ -60,6 +61,7 @@ const plans = [
     name: "Technical Analysis",
     tagline: "Full breakdown of your game",
     delivery: "3–4 days",
+    tools: "Nacsport · Python · Power BI · SQL",
     color: "blue",
     badge: "Most Popular",
     includes: [
@@ -91,6 +93,7 @@ const plans = [
     name: "Scout Report",
     tagline: "Professional document to send to clubs",
     delivery: "5–7 days",
+    tools: "Nacsport · Python · Power BI · SQL",
     color: "gold",
     includes: [
       { text: "<strong>2–3 matches</strong> analysed" },
@@ -229,6 +232,64 @@ export default function ServicesPage() {
             ))}
           </div>
         </section>
+        {/* ─── SAMPLE REPORT ─── */}
+        <section className="container-px max-w-screen-xl mx-auto py-10">
+          <motion.div
+            initial={{ opacity: 0, y: 16 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="relative overflow-hidden rounded-2xl border border-accent-green/30 bg-gradient-to-r from-accent-green/10 via-pitch-card to-accent-blue/5 p-8 flex flex-col md:flex-row items-center gap-6"
+          >
+            <div className="absolute inset-0 pitch-grid opacity-20 pointer-events-none" />
+            <div className="relative w-14 h-14 rounded-xl bg-accent-green/10 border border-accent-green/30 flex items-center justify-center shrink-0">
+              <svg
+                className="w-7 h-7 text-accent-green"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={1.5}
+                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                />
+              </svg>
+            </div>
+            <div className="relative flex-1 text-center md:text-left">
+              <div className="label-tag mb-1">Sample Report</div>
+              <div className="font-display font-bold text-xl md:text-2xl text-text-primary mb-1">
+                See How We Work Before You Commit
+              </div>
+              <p className="text-text-secondary text-sm leading-relaxed">
+                Download a real sample scouting report and see exactly how we
+                document a player — structure, depth and format.
+              </p>
+            </div>
+
+            <a
+              href="/docs/vision-report1.pdf"
+              download
+              className="relative shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-accent-green text-pitch-black font-display font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-accent-green-dim transition-colors duration-200"
+            >
+              <svg
+                className="w-4 h-4"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth={2}
+                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
+                />
+              </svg>
+              Download Sample
+            </a>
+          </motion.div>
+        </section>
 
         {/* ─── PLANS ─── */}
         <section className="bg-pitch-dark border-b border-pitch-border py-20">
@@ -297,6 +358,9 @@ export default function ServicesPage() {
                       </p>
                       <div className="font-mono text-[11px] text-text-muted">
                         ⏱ Delivery: {plan.delivery}
+                      </div>
+                      <div className="font-mono text-[11px] text-accent-blue/70 mt-1">
+                        🛠 {plan.tools}
                       </div>
                     </div>
 

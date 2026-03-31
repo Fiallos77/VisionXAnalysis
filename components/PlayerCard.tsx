@@ -1,20 +1,20 @@
-'use client'
+"use client";
 
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import type { Player } from '@/lib/data'
+import Link from "next/link";
+import { motion } from "framer-motion";
+import type { Player } from "@/lib/data";
 
 interface PlayerCardProps {
-  player: Player
+  player: Player;
 }
 
 export default function PlayerCard({ player }: PlayerCardProps) {
   return (
-    <motion.div
-      whileHover={{ y: -4 }}
-      transition={{ duration: 0.25 }}
-    >
-      <Link href={`/players/${player.id}`} className="group block card-base hover:border-pitch-muted transition-colors duration-300">
+    <motion.div whileHover={{ y: -4 }} transition={{ duration: 0.25 }}>
+      <Link
+        href={`/players/${player.id}`}
+        className="group block card-base hover:border-pitch-muted transition-colors duration-300"
+      >
         {/* Image */}
         <div className="relative overflow-hidden bg-pitch-muted h-52">
           <img
@@ -46,20 +46,32 @@ export default function PlayerCard({ player }: PlayerCardProps) {
           </div>
           <div className="mt-3 pt-3 border-t border-pitch-border flex justify-between">
             <div className="text-center">
-              <div className="font-display font-bold text-accent-green text-base">{player.age}</div>
-              <div className="font-mono text-[9px] text-text-muted tracking-wider uppercase">Age</div>
+              <div className="font-display font-bold text-accent-green text-base">
+                {player.age}
+              </div>
+              <div className="font-mono text-[9px] text-text-muted tracking-wider uppercase">
+                Age
+              </div>
             </div>
             <div className="text-center">
-              <div className="font-display font-bold text-text-primary text-base">{player.height}</div>
-              <div className="font-mono text-[9px] text-text-muted tracking-wider uppercase">Height</div>
+              <div className="font-display font-bold text-text-primary text-base">
+                {player.height}
+              </div>
+              <div className="font-mono text-[9px] text-text-muted tracking-wider uppercase">
+                Height
+              </div>
             </div>
             <div className="text-center">
-              <div className="font-mono text-[9px] text-accent-blue font-bold text-sm">{player.foot}</div>
-              <div className="font-mono text-[9px] text-text-muted tracking-wider uppercase">Foot</div>
+              <div className="font-mono text-[9px] text-accent-blue font-bold text-sm">
+                {player.foot}
+              </div>
+              <div className="font-mono text-[9px] text-text-muted tracking-wider uppercase">
+                Foot
+              </div>
             </div>
           </div>
         </div>
       </Link>
     </motion.div>
-  )
+  );
 }

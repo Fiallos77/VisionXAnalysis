@@ -5,6 +5,7 @@ import Link from "next/link";
 import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { players, analyses } from "@/lib/data";
+import RadarChart from "@/components/RadarChart";
 
 interface Props {
   params: { id: string };
@@ -118,6 +119,62 @@ export default function PlayerProfilePage({ params }: Props) {
                 </svg>
               </Link>
             </motion.div>
+          </div>
+        </section>
+        {/* ─── ATTRIBUTES ─── */}
+        <section className="container-px max-w-screen-xl mx-auto py-10">
+          <div className="grid md:grid-cols-[1fr_1fr] gap-8 items-center card-base border-gradient p-8">
+            {/* Radar */}
+            <div className="flex flex-col items-center gap-4">
+              <div className="label-tag mb-2">Player Attributes</div>
+              <RadarChart attributes={player.attributes} size={260} />
+            </div>
+
+            {/* Values */}
+            <div className="flex flex-col gap-4">
+              <div className="label-tag mb-2">Attribute Breakdown</div>
+              {[
+                { key: "technical", label: "Technical" },
+                { key: "positioning", label: "Positioning" },
+                { key: "decisions", label: "Decisions" },
+                { key: "physical", label: "Physical" },
+                { key: "defending", label: "Defending" },
+              ].map((attr) => {
+                const value =
+                  player.attributes[attr.key as keyof typeof player.attributes];
+                return (
+                  <div key={attr.key} className="flex items-center gap-3">
+                    <span className="font-mono text-[11px] text-text-secondary w-24 shrink-0">
+                      {attr.label}
+                    </span>
+                    <div className="flex-1 h-1.5 bg-pitch-border rounded-full overflow-hidden">
+                      <div
+                        className="h-full rounded-full bg-gradient-to-r from-accent-green to-accent-blue transition-all duration-500"
+                        style={{ width: `${(value / 10) * 100}%` }}
+                      />
+                    </div>
+                    <span className="font-display font-bold text-accent-green text-base w-8 text-right">
+                      {value}
+                    </span>
+                  </div>
+                );
+              })}
+
+              {/* Overall */}
+              <div className="mt-4 pt-4 border-t border-pitch-border flex items-center justify-between">
+                <span className="font-mono text-[11px] text-text-muted uppercase tracking-widest">
+                  Overall
+                </span>
+                <span className="font-display font-bold text-3xl text-gradient-green">
+                  {(
+                    Object.values(player.attributes).reduce(
+                      (a, b) => a + b,
+                      0,
+                    ) / 5
+                  ).toFixed(1)}
+                </span>
+              </div>
+            </div>
           </div>
         </section>
 
