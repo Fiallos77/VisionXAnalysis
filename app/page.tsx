@@ -145,18 +145,20 @@ export default function HomePage() {
               </div>
               <h2 className="display-heading text-2xl md:text-3xl xl:text-4xl text-text-primary leading-tight mb-4">
                 More than{" "}
-                <span className="text-gradient-green">100 players</span>{" "}
-                analysed by Vision X are currently active in professional
-                football leagues.
+                <span className="text-gradient-green">
+                  Professional Standards for
+                </span>{" "}
+                for Every Player
               </h2>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-2xl">
-                Through rigorous video analysis and data-driven scouting, Vision
-                X has built profiles for over 100 footballers who have gone on
-                to secure contracts, earn promotions and establish themselves
-                across professional competitions in Europe, South America and
-                beyond. Our methodology bridges the gap between raw talent and
-                professional recognition — giving players the evidence-based
-                documentation that clubs and scouts trust.
+                In the modern game, being talented isn't enough-you need to be
+                seen. Vision X Analysis applies rigorous video analysis and
+                data-driven scouting to decode player performance with
+                professional precision. By delivering high-level technical
+                reports and tactical breakdowns, we provide players and
+                representatives with the professional tools needed to secure
+                contracts and establish themselves in competitive leagues
+                worldwide..
               </p>
             </div>
           </motion.div>
