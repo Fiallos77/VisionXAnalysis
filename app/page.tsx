@@ -130,66 +130,28 @@ export default function HomePage() {
           </div>
 
           {/* ─── IMPACT STATEMENT ─── */}
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.7, delay: 0.5 }}
-            className="mt-20 card-base border-gradient p-8 md:p-10 relative overflow-hidden"
-          >
+          <motion.div initial={{ opacity: 0, y: 30 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.7, delay: 0.5 }} className="mt-20 card-base border-gradient p-8 md:p-10 relative overflow-hidden">
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent-green/5 rounded-full blur-3xl pointer-events-none" />
             <div className="absolute bottom-0 left-0 w-48 h-48 bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
-            <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
-              <div>
-                <div className="flex items-center gap-3 mb-4">
-                  <span className="w-6 h-px bg-accent-green" />
-                  <span className="label-tag">Our Impact</span>
-                </div>
-                <h2 className="display-heading text-2xl md:text-3xl xl:text-4xl text-text-primary leading-tight mb-4">
-                  More than{" "}
-                  <span className="text-gradient-green">100 players</span>{" "}
-                  analysed by Vision X are currently active in professional
-                  football leagues.
-                </h2>
-                <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-2xl">
-                  Through rigorous video analysis and data-driven scouting,
-                  Vision X has built profiles for over 100 footballers who have
-                  gone on to secure contracts, earn promotions and establish
-                  themselves across professional competitions in Europe, South
-                  America and beyond. Our methodology bridges the gap between
-                  raw talent and professional recognition — giving players the
-                  evidence-based documentation that clubs and scouts trust.
-                </p>
+            <div className="relative">
+              <div className="flex items-center gap-3 mb-4">
+                <span className="w-6 h-px bg-accent-green" />
+                <span className="label-tag">Our Impact</span>
               </div>
-              <div className="flex flex-row md:flex-col gap-6 md:gap-4 shrink-0">
-                <div className="text-center md:text-right">
-                  <div className="font-display font-bold text-4xl md:text-5xl text-accent-green leading-none">
-                    100+
-                  </div>
-                  <div className="font-mono text-[10px] tracking-widest text-text-muted uppercase mt-1">
-                    Players in Pro Football
-                  </div>
-                </div>
-                <div className="text-center md:text-right">
-                  <div className="font-display font-bold text-4xl md:text-5xl text-accent-blue leading-none">
-                    30+
-                  </div>
-                  <div className="font-mono text-[10px] tracking-widest text-text-muted uppercase mt-1">
-                    Leagues Covered
-                  </div>
-                </div>
-                <div className="text-center md:text-right">
-                  <div className="font-display font-bold text-4xl md:text-5xl text-text-primary leading-none">
-                    5+
-                  </div>
-                  <div className="font-mono text-[10px] tracking-widest text-text-muted uppercase mt-1">
-                    Years of Work
-                  </div>
-                </div>
-              </div>
+              <h2 className="display-heading text-2xl md:text-3xl xl:text-4xl text-text-primary leading-tight mb-4">
+                More than{' '}
+                <span className="text-gradient-green">100 players</span>{' '}
+                analysed by Vision X are currently active in professional football leagues.
+              </h2>
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-2xl">
+                Through rigorous video analysis and data-driven scouting, Vision X has built profiles
+                for over 100 footballers who have gone on to secure contracts, earn promotions and
+                establish themselves across professional competitions in Europe, South America and beyond.
+                Our methodology bridges the gap between raw talent and professional recognition —
+                giving players the evidence-based documentation that clubs and scouts trust.
+              </p>
             </div>
           </motion.div>
-        </div>
-      </section>
 
       {/* ─── FEATURED PLAYERS ─── */}
       <section className="section-spacing bg-pitch-dark border-y border-pitch-border">
