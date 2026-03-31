@@ -77,7 +77,7 @@ export const players: Player[] = [
       "Aerial duel engagement",
       "Defensive tracking runs",
     ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/comminsoon",
     clips: [
       {
         id: "c1",
@@ -141,7 +141,7 @@ export const players: Player[] = [
       "One-on-one defending",
       "Recovery sprint positioning",
     ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/commingsoon",
     clips: [
       {
         id: "c1",
@@ -275,7 +275,7 @@ export const players: Player[] = [
       "Ball progression under pressure",
       "Driving carries from deep",
     ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/comminsoon",
     clips: [
       {
         id: "c1",
@@ -318,7 +318,7 @@ export const players: Player[] = [
       "Physicality in duels",
       "Left-foot variety",
     ],
-    videoUrl: "https://www.youtube.com/embed/dQw4w9WgXcQ",
+    videoUrl: "https://www.youtube.com/embed/commingsoon",
     clips: [
       {
         id: "c1",
