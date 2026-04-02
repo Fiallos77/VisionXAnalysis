@@ -22,6 +22,8 @@ export interface Player {
     physical: number;
     defending: number;
   };
+  bodyZones: BodyZone[];
+  silhouetteUrl: string;
 }
 
 export interface AnalysisClip {
@@ -42,6 +44,19 @@ export interface Analysis {
   duration: string;
   tags: string[];
   summary: string;
+}
+export interface ZoneStat {
+  label: string;
+  value: number;
+}
+
+export interface BodyZone {
+  id: string;
+  label: string;
+  title: string;
+  description: string;
+  stats: ZoneStat[];
+  position: { top: string; left: string };
 }
 
 export const players: Player[] = [
@@ -78,6 +93,92 @@ export const players: Player[] = [
       "Defensive tracking runs",
     ],
     videoUrl: "https://www.youtube.com/embed/comminsoon",
+    silhouetteUrl: "/images/player1.png",
+    bodyZones: [
+      {
+        id: "head",
+        label: "HEAD",
+        title: "Cabeza – Visión & Inteligencia",
+        description:
+          "Lectura de juego superior y toma de decisiones bajo presión.",
+        position: { top: "12%", left: "50%" },
+        stats: [
+          { label: "Visión de juego", value: 88 },
+          { label: "Toma de decisiones", value: 75 },
+          { label: "Juego aéreo", value: 58 },
+          { label: "Cabezazo", value: 52 },
+        ],
+      },
+      {
+        id: "torso",
+        label: "TORSO",
+        title: "Torso – Físico & Resistencia",
+        description:
+          "Motor físico sólido con buena resistencia en los 90 minutos.",
+        position: { top: "35%", left: "50%" },
+        stats: [
+          { label: "Resistencia", value: 78 },
+          { label: "Fuerza", value: 70 },
+          { label: "Equilibrio", value: 80 },
+          { label: "Agresividad", value: 62 },
+        ],
+      },
+      {
+        id: "right-arm",
+        label: "RIGHT ARM.",
+        title: "Brazo Derecho – Retención & Escudo",
+        description:
+          "Buen uso del cuerpo para proteger el balón en espacios reducidos.",
+        position: { top: "38%", left: "30%" },
+        stats: [
+          { label: "Retención bajo presión", value: 82 },
+          { label: "Escudo corporal", value: 74 },
+          { label: "Disputa física", value: 66 },
+          { label: "Posicionamiento", value: 78 },
+        ],
+      },
+      {
+        id: "left-arm",
+        label: "LEFT ARM.",
+        title: "Brazo Izquierdo – Equilibrio & Cobertura",
+        description:
+          "Uso del brazo izquierdo para mantener equilibrio en conducción.",
+        position: { top: "38%", left: "70%" },
+        stats: [
+          { label: "Equilibrio en carrera", value: 76 },
+          { label: "Protección lateral", value: 70 },
+          { label: "Cobertura de espacio", value: 72 },
+          { label: "Reacción", value: 74 },
+        ],
+      },
+      {
+        id: "left-leg",
+        label: "LEFT LEG.",
+        title: "Pierna Derecha (Dominante)",
+        description: "Precisión excepcional en pases largos y disparo potente.",
+        position: { top: "72%", left: "57%" },
+        stats: [
+          { label: "Pase largo", value: 90 },
+          { label: "Pase corto", value: 87 },
+          { label: "Disparo", value: 78 },
+          { label: "Regate", value: 75 },
+          { label: "Centro", value: 82 },
+        ],
+      },
+      {
+        id: "right-leg",
+        label: "RIGHT LEG.",
+        title: "Pierna Izquierda",
+        description: "Pierna débil con margen de mejora, pero funcional.",
+        position: { top: "72%", left: "43%" },
+        stats: [
+          { label: "Pase corto", value: 70 },
+          { label: "Disparo", value: 55 },
+          { label: "Control", value: 72 },
+          { label: "Regate", value: 65 },
+        ],
+      },
+    ],
     clips: [
       {
         id: "c1",
@@ -142,6 +243,93 @@ export const players: Player[] = [
       "Recovery sprint positioning",
     ],
     videoUrl: "https://www.youtube.com/embed/commingsoon",
+    silhouetteUrl: "/images/player1.png",
+    bodyZones: [
+      {
+        id: "head",
+        label: "CABEZA",
+        title: "Cabeza – Visión & Inteligencia",
+        description:
+          "Buena lectura ofensiva, anticipa desmarques del carrilero.",
+        position: { top: "8%", left: "50%" },
+        stats: [
+          { label: "Visión de juego", value: 80 },
+          { label: "Toma de decisiones", value: 78 },
+          { label: "Juego aéreo", value: 60 },
+          { label: "Cabezazo", value: 55 },
+        ],
+      },
+      {
+        id: "torso",
+        label: "TORSO",
+        title: "Torso – Físico & Resistencia",
+        description:
+          "Físico ágil con buena capacidad de recuperación en banda.",
+        position: { top: "32%", left: "50%" },
+        stats: [
+          { label: "Resistencia", value: 82 },
+          { label: "Fuerza", value: 65 },
+          { label: "Equilibrio", value: 78 },
+          { label: "Agresividad", value: 60 },
+        ],
+      },
+      {
+        id: "right-arm",
+        label: "BRAZO DER.",
+        title: "Brazo Derecho – Retención & Escudo",
+        description:
+          "Uso correcto del brazo para equilibrio en duelos de banda.",
+        position: { top: "36%", left: "72%" },
+        stats: [
+          { label: "Retención bajo presión", value: 70 },
+          { label: "Escudo corporal", value: 65 },
+          { label: "Disputa física", value: 62 },
+          { label: "Posicionamiento", value: 74 },
+        ],
+      },
+      {
+        id: "left-arm",
+        label: "BRAZO IZQ.",
+        title: "Brazo Izquierdo – Equilibrio & Cobertura",
+        description:
+          "Apoyo en conducción por banda izquierda, su zona natural.",
+        position: { top: "36%", left: "28%" },
+        stats: [
+          { label: "Equilibrio en carrera", value: 82 },
+          { label: "Protección lateral", value: 78 },
+          { label: "Cobertura de espacio", value: 75 },
+          { label: "Reacción", value: 80 },
+        ],
+      },
+      {
+        id: "left-leg",
+        label: "PIERNA IZQ.",
+        title: "Pierna Izquierda (Dominante)",
+        description:
+          "Entrega precisa desde la banda y centros de alta calidad.",
+        position: { top: "68%", left: "40%" },
+        stats: [
+          { label: "Centro", value: 88 },
+          { label: "Pase corto", value: 84 },
+          { label: "Disparo", value: 70 },
+          { label: "Regate", value: 80 },
+          { label: "Conducción", value: 85 },
+        ],
+      },
+      {
+        id: "right-leg",
+        label: "PIERNA DER.",
+        title: "Pierna Derecha",
+        description: "Pierna débil, uso básico para control y apoyo.",
+        position: { top: "68%", left: "60%" },
+        stats: [
+          { label: "Pase corto", value: 65 },
+          { label: "Disparo", value: 48 },
+          { label: "Control", value: 68 },
+          { label: "Regate", value: 58 },
+        ],
+      },
+    ],
     clips: [
       {
         id: "c1",
@@ -191,6 +379,90 @@ export const players: Player[] = [
       "Off-ball sprint runs",
     ],
     videoUrl: "https://www.youtube.com/embed/N_9u3u2nLEc",
+    silhouetteUrl: "/images/player1.png",
+    bodyZones: [
+      {
+        id: "head",
+        label: "CABEZA",
+        title: "Cabeza – Visión & Juego Aéreo",
+        description: "Referencia aérea con buen remate y lectura del área.",
+        position: { top: "8%", left: "50%" },
+        stats: [
+          { label: "Visión de juego", value: 75 },
+          { label: "Toma de decisiones", value: 78 },
+          { label: "Juego aéreo", value: 82 },
+          { label: "Cabezazo", value: 80 },
+        ],
+      },
+      {
+        id: "torso",
+        label: "TORSO",
+        title: "Torso – Físico & Resistencia",
+        description: "Gran motor físico, dominante en el juego de espaldas.",
+        position: { top: "32%", left: "50%" },
+        stats: [
+          { label: "Resistencia", value: 85 },
+          { label: "Fuerza", value: 88 },
+          { label: "Equilibrio", value: 80 },
+          { label: "Agresividad", value: 75 },
+        ],
+      },
+      {
+        id: "right-arm",
+        label: "BRAZO DER.",
+        title: "Brazo Derecho – Escudo & Disputa",
+        description:
+          "Fuerte en duelos físicos, escuda bien el balón de espaldas.",
+        position: { top: "36%", left: "72%" },
+        stats: [
+          { label: "Retención bajo presión", value: 85 },
+          { label: "Escudo corporal", value: 88 },
+          { label: "Disputa física", value: 82 },
+          { label: "Posicionamiento", value: 78 },
+        ],
+      },
+      {
+        id: "left-arm",
+        label: "BRAZO IZQ.",
+        title: "Brazo Izquierdo – Equilibrio & Protección",
+        description: "Buen uso del cuerpo para proteger en contacto físico.",
+        position: { top: "36%", left: "28%" },
+        stats: [
+          { label: "Equilibrio en carrera", value: 80 },
+          { label: "Protección lateral", value: 82 },
+          { label: "Cobertura de espacio", value: 70 },
+          { label: "Reacción", value: 72 },
+        ],
+      },
+      {
+        id: "left-leg",
+        label: "PIERNA IZQ.",
+        title: "Pierna Izquierda (Dominante)",
+        description: "Remate de calidad y buen control en área reducida.",
+        position: { top: "68%", left: "40%" },
+        stats: [
+          { label: "Disparo", value: 84 },
+          { label: "Pase corto", value: 78 },
+          { label: "Control", value: 82 },
+          { label: "Regate", value: 70 },
+          { label: "Centro", value: 72 },
+        ],
+      },
+      {
+        id: "right-leg",
+        label: "PIERNA DER.",
+        title: "Pierna Derecha",
+        description:
+          "Pierna de apoyo, uso funcional en control y remates cortos.",
+        position: { top: "68%", left: "60%" },
+        stats: [
+          { label: "Disparo", value: 62 },
+          { label: "Pase corto", value: 68 },
+          { label: "Control", value: 70 },
+          { label: "Regate", value: 58 },
+        ],
+      },
+    ],
     clips: [
       {
         id: "c1",
@@ -233,6 +505,92 @@ export const players: Player[] = [
       "Pressing contributions",
     ],
     videoUrl: "https://www.youtube.com/embed/agG7LvxzrAw",
+    silhouetteUrl: "/images/player1.png",
+    bodyZones: [
+      {
+        id: "head",
+        label: "CABEZA",
+        title: "Cabeza – Visión & Decisión",
+        description:
+          "Decisivo en transición, lee bien los espacios en profundidad.",
+        position: { top: "8%", left: "50%" },
+        stats: [
+          { label: "Visión de juego", value: 78 },
+          { label: "Toma de decisiones", value: 80 },
+          { label: "Juego aéreo", value: 55 },
+          { label: "Cabezazo", value: 50 },
+        ],
+      },
+      {
+        id: "torso",
+        label: "TORSO",
+        title: "Torso – Explosividad & Físico",
+        description:
+          "Explosivo y directo, con gran capacidad de sprint sostenido.",
+        position: { top: "32%", left: "50%" },
+        stats: [
+          { label: "Resistencia", value: 84 },
+          { label: "Fuerza", value: 78 },
+          { label: "Equilibrio", value: 82 },
+          { label: "Agresividad", value: 72 },
+        ],
+      },
+      {
+        id: "right-arm",
+        label: "BRAZO DER.",
+        title: "Brazo Derecho – Equilibrio en Conducción",
+        description: "Buen uso del brazo en arranques y cambios de dirección.",
+        position: { top: "36%", left: "72%" },
+        stats: [
+          { label: "Retención bajo presión", value: 72 },
+          { label: "Escudo corporal", value: 68 },
+          { label: "Disputa física", value: 70 },
+          { label: "Posicionamiento", value: 75 },
+        ],
+      },
+      {
+        id: "left-arm",
+        label: "BRAZO IZQ.",
+        title: "Brazo Izquierdo – Apoyo en Regate",
+        description:
+          "Apoyo natural en su pierna dominante al regatear por banda.",
+        position: { top: "36%", left: "28%" },
+        stats: [
+          { label: "Equilibrio en carrera", value: 85 },
+          { label: "Protección lateral", value: 78 },
+          { label: "Cobertura de espacio", value: 72 },
+          { label: "Reacción", value: 82 },
+        ],
+      },
+      {
+        id: "left-leg",
+        label: "PIERNA IZQ.",
+        title: "Pierna Izquierda (Dominante)",
+        description: "Regate explosivo y entrega precisa desde banda derecha.",
+        position: { top: "68%", left: "40%" },
+        stats: [
+          { label: "Regate", value: 88 },
+          { label: "Disparo", value: 78 },
+          { label: "Centro", value: 82 },
+          { label: "Pase corto", value: 76 },
+          { label: "Conducción", value: 90 },
+        ],
+      },
+      {
+        id: "right-leg",
+        label: "PIERNA DER.",
+        title: "Pierna Derecha",
+        description:
+          "Pierna de apoyo, uso básico para control y pases simples.",
+        position: { top: "68%", left: "60%" },
+        stats: [
+          { label: "Pase corto", value: 62 },
+          { label: "Disparo", value: 50 },
+          { label: "Control", value: 65 },
+          { label: "Regate", value: 55 },
+        ],
+      },
+    ],
     clips: [
       {
         id: "c1",
@@ -276,6 +634,90 @@ export const players: Player[] = [
       "Driving carries from deep",
     ],
     videoUrl: "https://www.youtube.com/embed/comminsoon",
+    silhouetteUrl: "/images/player1.png",
+    bodyZones: [
+      {
+        id: "head",
+        label: "CABEZA",
+        title: "Cabeza – Lectura Defensiva",
+        description: "Excelente anticipación y lectura del juego sin balón.",
+        position: { top: "8%", left: "50%" },
+        stats: [
+          { label: "Visión de juego", value: 80 },
+          { label: "Toma de decisiones", value: 82 },
+          { label: "Juego aéreo", value: 78 },
+          { label: "Cabezazo", value: 75 },
+        ],
+      },
+      {
+        id: "torso",
+        label: "TORSO",
+        title: "Torso – Físico & Presencia",
+        description: "Físico imponente, domina duelos en la medular.",
+        position: { top: "32%", left: "50%" },
+        stats: [
+          { label: "Resistencia", value: 88 },
+          { label: "Fuerza", value: 85 },
+          { label: "Equilibrio", value: 80 },
+          { label: "Agresividad", value: 78 },
+        ],
+      },
+      {
+        id: "right-arm",
+        label: "BRAZO DER.",
+        title: "Brazo Derecho – Disputa & Presión",
+        description: "Contundente en duelos, usa bien el cuerpo para cortar.",
+        position: { top: "36%", left: "72%" },
+        stats: [
+          { label: "Retención bajo presión", value: 78 },
+          { label: "Escudo corporal", value: 80 },
+          { label: "Disputa física", value: 84 },
+          { label: "Posicionamiento", value: 82 },
+        ],
+      },
+      {
+        id: "left-arm",
+        label: "BRAZO IZQ.",
+        title: "Brazo Izquierdo – Cobertura & Bloqueo",
+        description:
+          "Buen cierre lateral en presión y bloqueo de líneas de pase.",
+        position: { top: "36%", left: "28%" },
+        stats: [
+          { label: "Equilibrio en carrera", value: 78 },
+          { label: "Protección lateral", value: 80 },
+          { label: "Cobertura de espacio", value: 82 },
+          { label: "Reacción", value: 78 },
+        ],
+      },
+      {
+        id: "right-leg",
+        label: "PIERNA DER.",
+        title: "Pierna Derecha (Dominante)",
+        description:
+          "Distribución corta precisa y buen timing en intercepciones.",
+        position: { top: "68%", left: "60%" },
+        stats: [
+          { label: "Pase corto", value: 84 },
+          { label: "Intercepción", value: 86 },
+          { label: "Disparo", value: 65 },
+          { label: "Control", value: 80 },
+          { label: "Pase largo", value: 62 },
+        ],
+      },
+      {
+        id: "left-leg",
+        label: "PIERNA IZQ.",
+        title: "Pierna Izquierda",
+        description: "Pierna débil, distribución básica y apoyo en control.",
+        position: { top: "68%", left: "40%" },
+        stats: [
+          { label: "Pase corto", value: 68 },
+          { label: "Control", value: 70 },
+          { label: "Disparo", value: 48 },
+          { label: "Regate", value: 55 },
+        ],
+      },
+    ],
     clips: [
       {
         id: "c1",
@@ -319,6 +761,89 @@ export const players: Player[] = [
       "Left-foot variety",
     ],
     videoUrl: "https://www.youtube.com/embed/commingsoon",
+    silhouetteUrl: "/images/player1.png",
+    bodyZones: [
+      {
+        id: "head",
+        label: "CABEZA",
+        title: "Cabeza – Inteligencia & Creatividad",
+        description:
+          "Sobresaliente inteligencia táctica y creatividad en espacios.",
+        position: { top: "8%", left: "50%" },
+        stats: [
+          { label: "Visión de juego", value: 92 },
+          { label: "Toma de decisiones", value: 88 },
+          { label: "Juego aéreo", value: 55 },
+          { label: "Cabezazo", value: 48 },
+        ],
+      },
+      {
+        id: "torso",
+        label: "TORSO",
+        title: "Torso – Físico & Pressing",
+        description: "Gran motor en pressing, alta intensidad sostenida.",
+        position: { top: "32%", left: "50%" },
+        stats: [
+          { label: "Resistencia", value: 82 },
+          { label: "Fuerza", value: 62 },
+          { label: "Equilibrio", value: 80 },
+          { label: "Agresividad", value: 75 },
+        ],
+      },
+      {
+        id: "right-arm",
+        label: "BRAZO DER.",
+        title: "Brazo Derecho – Control & Protección",
+        description: "Buen equilibrio en conducción por half-space.",
+        position: { top: "36%", left: "72%" },
+        stats: [
+          { label: "Retención bajo presión", value: 84 },
+          { label: "Escudo corporal", value: 70 },
+          { label: "Disputa física", value: 65 },
+          { label: "Posicionamiento", value: 88 },
+        ],
+      },
+      {
+        id: "left-arm",
+        label: "BRAZO IZQ.",
+        title: "Brazo Izquierdo – Equilibrio & Cobertura",
+        description: "Apoyo en movimientos rápidos entre líneas.",
+        position: { top: "36%", left: "28%" },
+        stats: [
+          { label: "Equilibrio en carrera", value: 80 },
+          { label: "Protección lateral", value: 72 },
+          { label: "Cobertura de espacio", value: 85 },
+          { label: "Reacción", value: 84 },
+        ],
+      },
+      {
+        id: "right-leg",
+        label: "PIERNA DER.",
+        title: "Pierna Derecha (Dominante)",
+        description: "Pase de calidad superior y primer toque excepcional.",
+        position: { top: "68%", left: "60%" },
+        stats: [
+          { label: "Pase corto", value: 90 },
+          { label: "Pase largo", value: 82 },
+          { label: "Disparo", value: 72 },
+          { label: "Regate", value: 78 },
+          { label: "Control", value: 88 },
+        ],
+      },
+      {
+        id: "left-leg",
+        label: "PIERNA IZQ.",
+        title: "Pierna Izquierda",
+        description: "Pierna débil, variedad limitada pero funcional.",
+        position: { top: "68%", left: "40%" },
+        stats: [
+          { label: "Pase corto", value: 68 },
+          { label: "Control", value: 72 },
+          { label: "Disparo", value: 52 },
+          { label: "Regate", value: 60 },
+        ],
+      },
+    ],
     clips: [
       {
         id: "c1",

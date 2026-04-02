@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 import PageTransition from "@/components/PageTransition";
 import { players, analyses } from "@/lib/data";
 import RadarChart from "@/components/RadarChart";
+import BodyScoutMap from "@/components/BodyScoutMap";
 
 interface Props {
   params: { id: string };
@@ -193,6 +194,12 @@ export default function PlayerProfilePage({ params }: Props) {
             <div className="absolute bottom-0 right-0 w-32 h-12 z-10" />
           </div>
         </section>
+        {/* ─── Body Scout Map ─── */}
+        <BodyScoutMap
+          zones={player.bodyZones}
+          playerName={player.name}
+          silhouetteUrl={player.silhouetteUrl}
+        />
 
         {/* ─── Clips & Observations ─── */}
         <section className="container-px max-w-screen-xl mx-auto py-10">
