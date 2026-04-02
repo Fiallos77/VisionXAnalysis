@@ -41,9 +41,9 @@ export default function BodyScoutMap({
 
       <div className="card-base border-gradient p-6 md:p-10">
         {/* Grid: panel izq | jugador | panel der */}
-        <div className="grid grid-cols-[280px_auto_280px] gap-4 items-center justify-center">
+        <div className="flex items-start justify-center gap-0">
           {/* Columna izquierda — popup left */}
-          <div className="relative self-stretch">
+          <div className="relative w-[260px] shrink-0 hidden md:block">
             <AnimatePresence>
               {activeZone && PANEL_CONFIG[activeZone.id]?.side === "left" && (
                 <motion.div
@@ -136,7 +136,7 @@ export default function BodyScoutMap({
           </div>
 
           {/* Columna derecha — popup right */}
-          <div className="relative self-stretch">
+          <div className="relative w-[260px] shrink-0 hidden md:block">
             <AnimatePresence>
               {activeZone && PANEL_CONFIG[activeZone.id]?.side === "right" && (
                 <motion.div
