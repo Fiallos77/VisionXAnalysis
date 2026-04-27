@@ -63,7 +63,7 @@ export interface BodyZone {
 export const players: Player[] = [
   {
     id: "marcus-elroy",
-    name: "Marcus Elroy",
+    name: "Ali Auglah",
     position: "Central Midfielder",
     age: 22,
     club: "FC Altheim",
@@ -78,7 +78,7 @@ export const players: Player[] = [
       defending: 6.8,
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1526232761682-d26e03ac148e?w=400&h=400&fit=crop",
+      '/images/AliAuglah.jpg',
     description:
       "Marcus Elroy is a technically gifted central midfielder with exceptional spatial awareness and the ability to control tempo in tight spaces. His progressive passing and press-resistance make him a key asset in build-up phases. Scouts from multiple second-division clubs have monitored him throughout the 2023/24 season.",
     strengths: [
@@ -93,7 +93,7 @@ export const players: Player[] = [
       "Aerial duel engagement",
       "Defensive tracking runs",
     ],
-    videoUrl: "https://www.youtube.com/embed/comminsoon",
+    videoUrl: "https://www.youtube.com/embed/bQxJp6UKcqE",
     silhouetteUrl: "/images/player1.png",
     bodyZones: [
       {
@@ -212,7 +212,7 @@ export const players: Player[] = [
   },
   {
     id: "rafael-santos",
-    name: "Rafael Santos",
+    name: "Penningtong",
     position: "Left Back",
     age: 19,
     club: "SC Ribeiro",
@@ -227,9 +227,9 @@ export const players: Player[] = [
       defending: 6.8,
     },
     imageUrl:
-      "https://images.unsplash.com/photo-1543326727-cf6c39e8f84c?w=400&h=400&fit=crop",
+      '/images/penningtong.jpg',
     description:
-      "Rafael Santos is an attack-minded left back with remarkable crossing ability and inverted movement patterns. Operating in a back-four, he regularly supports the winger to create overloads on the left flank. Still developing his defensive positioning, but his offensive output at 19 is notable.",
+      "Penningtong is an attack-minded left back with remarkable crossing ability and inverted movement patterns. Operating in a back-four, he regularly supports the winger to create overloads on the left flank. Still developing his defensive positioning, but his offensive output at 19 is notable.",
     strengths: [
       "Delivery from left flank",
       "Overlap and underlap timing",
@@ -242,7 +242,7 @@ export const players: Player[] = [
       "One-on-one defending",
       "Recovery sprint positioning",
     ],
-    videoUrl: "https://www.youtube.com/embed/commingsoon",
+    videoUrl: "https://www.youtube.com/embed/fwtguP2rs9g",
     silhouetteUrl: "/images/player-silhouette.png",
     bodyZones: [
       {
@@ -346,14 +346,14 @@ export const players: Player[] = [
   },
   {
     id: "mateo-diez",
-    name: "Mateo Diez",
+    name: "Joel Almache",
     position: "Centre Forward",
     age: 22,
     club: "Deportivo Torino",
     foot: "Left",
     height: "1.74m",
-    nationality: "Peruvian",
-    imageUrl: "/images/portada1.jpeg",
+    nationality: "Ecuadorian",
+    imageUrl: "/images/Joel.jpeg",
     attributes: {
       technical: 7.2,
       positioning: 7.8,
@@ -362,7 +362,7 @@ export const players: Player[] = [
       defending: 6.0,
     },
     description:
-      "Mateo Diez is a physically imposing centre forward with intelligent movement and a refined hold-up game. His ability to link play and bring teammates into the game sets him apart at regional level. Possesses a quality left foot and good aerial presence.",
+      "Joel Almache is a physically imposing centre forward with intelligent movement and a refined hold-up game. His ability to link play and bring teammates into the game sets him apart at regional level. Possesses a quality left foot and good aerial presence.",
     strengths: [
       "Hold-up play and linkage",
       "Aerial dominance",
