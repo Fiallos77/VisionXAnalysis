@@ -144,21 +144,19 @@ export default function HomePage() {
                 <span className="label-tag">Our Impact</span>
               </div>
               <h2 className="display-heading text-2xl md:text-3xl xl:text-4xl text-text-primary leading-tight mb-4">
-                More than{" "}
-                <span className="text-gradient-green">
-                  Professional Standards for
-                </span>{" "}
+                More than{' '}
+                <span className="text-gradient-green">Professional Standards</span>{' '}
                 for Every Player
               </h2>
-              <p className="text-text-secondary text-sm md:text-base leading-relaxed max-w-2xl">
-                In the modern game, being talented isn't enough-you need to be
+              <p className="text-text-secondary text-sm md:text-base leading-relaxed">
+                In the modern game, being talented isn't enough — you need to be
                 seen. Vision X Analysis applies rigorous video analysis and
                 data-driven scouting to decode player performance with
                 professional precision. By delivering high-level technical
                 reports and tactical breakdowns, we provide players and
                 representatives with the professional tools needed to secure
                 contracts and establish themselves in competitive leagues
-                worldwide..
+                worldwide.
               </p>
             </div>
           </motion.div>

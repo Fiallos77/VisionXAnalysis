@@ -16,16 +16,22 @@ export default function ContactPage() {
     message: '',
   })
 
-  const handleSubmit = (e: React.MouseEvent) => {
+  const handleSubmit = async (e: React.MouseEvent) => {
     e.preventDefault()
-    if (formData.name && formData.email && formData.category && formData.message) {
-      setSubmitted(true)
+    if (!formData.name || !formData.email || !formData.category || !formData.message) return
+    try {
+      const res = await fetch('/api/contact', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify(formData),
+      })
+      if (res.ok) {
+        setSubmitted(true)
+      }
+    } catch (error) {
+      console.error('Error sending message:', error)
     }
   }
-
-  const categories: { value: Category; label: string; desc: string }[] = [
-    { value: 'player', label: 'Player', desc: 'Request a personal analysis' },
-  ]
 
   return (
     <PageTransition>
@@ -37,14 +43,13 @@ export default function ContactPage() {
             <SectionHeader
               tag="Get In Touch"
               title="Contact Vision X"
-              subtitle="If you're a player looking to take the next step in your career, request your personalized performance analysis, the creation of your professional profile, or consultations on strategic collaboration."
+              subtitle="Clubs, coaches and scouts are welcome to get in touch regarding analysis requests, player profiles or collaboration enquiries."
             />
           </div>
         </section>
 
         <section className="container-px max-w-screen-xl mx-auto py-20">
           <div className="grid md:grid-cols-[1fr_380px] gap-16">
-            {/* Form */}
             <div>
               {submitted ? (
                 <motion.div
@@ -57,7 +62,7 @@ export default function ContactPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
                   </div>
-                  <div className="label-tag mb-3 flex justify-center">Message Sent</div>
+                  <div className="label-tag mb-3">Message Sent</div>
                   <h3 className="font-display font-bold text-2xl text-text-primary mb-3">
                     We'll be in touch shortly.
                   </h3>
@@ -101,28 +106,21 @@ export default function ContactPage() {
                     transition={{ delay: 0.15 }}
                   >
                     <label className="label-tag block mb-3">Category</label>
-                    <div className="grid grid-cols-3 gap-3">
-                      {categories.map((cat) => (
-                        <button
-                          key={cat.value}
-                          onClick={() => setFormData({ ...formData, category: cat.value })}
-                          className={`card-base p-4 text-left transition-all duration-200 ${
-                            formData.category === cat.value
-                              ? 'border-accent-green bg-accent-green/5'
-                              : 'hover:border-pitch-muted'
-                          }`}
-                        >
-                          <div className="font-display font-bold text-sm text-text-primary mb-0.5">
-                            {cat.label}
-                          </div>
-                          <div className="font-mono text-[10px] text-text-muted leading-snug">
-                            {cat.desc}
-                          </div>
-                          {formData.category === cat.value && (
-                            <div className="w-1.5 h-1.5 rounded-full bg-accent-green mt-2" />
-                          )}
-                        </button>
-                      ))}
+                    <div className="grid grid-cols-1 gap-3 max-w-xs">
+                      <button
+                        onClick={() => setFormData({ ...formData, category: 'player' })}
+                        className={`card-base p-4 text-left transition-all duration-200 ${
+                          formData.category === 'player'
+                            ? 'border-accent-green bg-accent-green/5'
+                            : 'hover:border-pitch-muted'
+                        }`}
+                      >
+                        <div className="font-display font-bold text-sm text-text-primary mb-0.5">Player</div>
+                        <div className="font-mono text-[10px] text-text-muted leading-snug">Request a personal analysis</div>
+                        {formData.category === 'player' && (
+                          <div className="w-1.5 h-1.5 rounded-full bg-accent-green mt-2" />
+                        )}
+                      </button>
                     </div>
                   </motion.div>
 
@@ -161,7 +159,6 @@ export default function ContactPage() {
               )}
             </div>
 
-            {/* Sidebar */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
