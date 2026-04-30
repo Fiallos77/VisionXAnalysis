@@ -1,156 +1,161 @@
-"use client";
+'use client'
 
-import { motion } from "framer-motion";
-import Link from "next/link";
-import PageTransition from "@/components/PageTransition";
-import SectionHeader from "@/components/SectionHeader";
+import { motion } from 'framer-motion'
+import Link from 'next/link'
+import PageTransition from '@/components/PageTransition'
+import SectionHeader from '@/components/SectionHeader'
 
 const requirements = [
   {
-    icon: "🎬",
-    title: "Match Duration",
-    body: "Full match preferred. Minimum 30–90 minutes of continuous footage for quality analysis.",
-    tag: "Required",
+    icon: '🎬',
+    title: 'Match Duration',
+    body: 'Full match preferred. Minimum 30–90 minutes of continuous footage for quality analysis.',
+    tag: 'Required',
   },
   {
-    icon: "📐",
-    title: "Camera Angle",
-    body: "Recording must show the full pitch or at least the full width. Zoomed-in phone recordings are not suitable.",
-    tag: "Required",
+    icon: '📐',
+    title: 'Camera Angle',
+    body: 'Recording must show the full pitch or at least the full width. Zoomed-in phone recordings are not suitable.',
+    tag: 'Required',
   },
   {
-    icon: "🔢",
-    title: "Player Number",
-    body: "Indicate the shirt number or a clear description of the player to be analysed before submission.",
-    tag: "Required",
+    icon: '🔢',
+    title: 'Player Number',
+    body: 'Indicate the shirt number or a clear description of the player to be analysed before submission.',
+    tag: 'Required',
   },
   {
-    icon: "📁",
-    title: "Multiple Matches",
-    body: "For Technical and Scout packages, 2–3 different matches are strongly recommended for a representative profile.",
-    tag: "Recommended",
+    icon: '📁',
+    title: 'Multiple Matches',
+    body: 'For Technical and Scout packages, 2–3 different matches are strongly recommended for a representative profile.',
+    tag: 'Recommended',
   },
-];
+]
 
-const plans = [
+type PlanItem = { text: string }
+
+type Plan = {
+  tier: string
+  name: string
+  tagline: string
+  delivery: string
+  color: string
+  badge?: string | null
+  includes: PlanItem[]
+  notIncluded: string[] | null
+  extras: string[] | null
+}
+
+const plans: Plan[] = [
   {
-    tier: "🔍 ID",
-    name: "Highlight",
-    tagline: "For the player who needs to be seen",
-    delivery: "48 hours",
-    color: "green",
+    tier: '🔍 ID',
+    name: 'Highlight',
+    tagline: 'For the player who needs to be seen',
+    delivery: '48 hours',
+    color: 'green',
+    badge: null,
     includes: [
-      { text: "Match video compilation focused on your actions" },
-      { text: "Player profile document" },
-      { text: "Ready to share with clubs and agents" },
+      { text: 'Match video compilation focused on your actions' },
+      { text: 'Player profile document' },
+      { text: 'Ready to share with clubs and agents' },
     ],
     notIncluded: [
-      "Technical written analysis",
-      "PDF report",
-      "Scout document",
-      "Player rating",
-      "Shareable profile page",
+      'Technical written analysis',
+      'PDF report',
+      'Scout document',
+      'Player rating',
+      'Shareable profile page',
     ],
     extras: null,
-    rating: null,
   },
   {
-    tier: "📊 TECHNICAL",
-    name: "Technical Breakdown",
-    tagline: "For the player who wants to understand their game",
-    delivery: "3–4 days",
-    color: "blue",
-    badge: "Most Popular",
+    tier: '📊 TECHNICAL',
+    name: 'Technical Breakdown',
+    tagline: 'For the player who wants to understand their game',
+    delivery: '3–4 days',
+    color: 'blue',
+    badge: 'Most Popular',
     includes: [
-      { text: "Multi-match performance analysis" },
-      { text: "Technical and tactical data report" },
-      { text: "Visual breakdown of your performance" },
-      { text: "Highlight video included" },
-      { text: "Available as one-time or monthly" },
+      { text: 'Multi-match performance analysis' },
+      { text: 'Technical and tactical data report' },
+      { text: 'Visual breakdown of your performance' },
+      { text: 'Highlight video included' },
+      { text: 'Available as one-time or monthly' },
     ],
     notIncluded: [
-      "Full scout report",
-      "Player rating by category",
-      "Shareable profile page",
-      "Direct link for clubs & agents",
-      "Quarterly accumulated report",
+      'Full scout report',
+      'Player rating by category',
+      'Shareable profile page',
+      'Direct link for clubs & agents',
+      'Quarterly accumulated report',
     ],
     extras: null,
-    rating: null,
   },
   {
-    tier: "🛡 SCOUT",
-    name: "Scout Report",
-    tagline: "For the player ready to move to the next level",
-    delivery: "5–7 days",
-    color: "gold",
+    tier: '🛡 SCOUT',
+    name: 'Scout Report',
+    tagline: 'For the player ready to move to the next level',
+    delivery: '5–7 days',
+    color: 'gold',
+    badge: null,
     includes: [
-      { text: "In-depth analysis across multiple matches" },
-      { text: "Professional metrics and tactical profile" },
-      {
-        text: "Full scouting document — strengths, areas to improve, player projection",
-      },
-      { text: "Professional highlight video and key clips" },
+      { text: 'In-depth analysis across multiple matches' },
+      { text: 'Professional metrics and tactical profile' },
+      { text: 'Full scouting document — strengths, areas to improve, player projection' },
+      { text: 'Professional highlight video and key clips' },
     ],
     notIncluded: null,
     extras: [
-      "Accumulated Scout Report every 3 months - professional document ready for clubs and agents",
-      "Monthly evolution analysis - tracking your progress throughout the season",
-      "Available as a monthly subscription",
+      'Accumulated Scout Report every 3 months — professional document ready for clubs and agents',
+      'Monthly evolution analysis — tracking your progress throughout the season',
+      'Available as a monthly subscription',
     ],
-    rating: null,
   },
-];
+]
 
-const colorMap: Record<
-  string,
-  {
-    border: string;
-    badge: string;
-    tier: string;
-    check: string;
-    btn: string;
-    ratingBar: string;
-    extrasBorder: string;
-    extrasBg: string;
-  }
-> = {
+const colorMap: Record<string, {
+  border: string
+  badge: string
+  tier: string
+  check: string
+  btn: string
+  extrasBorder: string
+  extrasBg: string
+}> = {
   green: {
-    border: "border-accent-green/20 hover:border-accent-green/50",
-    badge: "",
-    tier: "text-accent-green",
-    check: "bg-accent-green/10 text-accent-green",
-    btn: "border border-accent-green/40 text-accent-green hover:bg-accent-green/10 hover:border-accent-green",
-    ratingBar: "",
-    extrasBorder: "",
-    extrasBg: "",
+    border: 'border-accent-green/20 hover:border-accent-green/50',
+    badge: '',
+    tier: 'text-accent-green',
+    check: 'bg-accent-green/10 text-accent-green',
+    btn: 'border border-accent-green/40 text-accent-green hover:bg-accent-green/10 hover:border-accent-green',
+    extrasBorder: '',
+    extrasBg: '',
   },
   blue: {
-    border: "border-accent-blue/50",
-    badge: "bg-accent-blue text-pitch-black",
-    tier: "text-accent-blue",
-    check: "bg-accent-blue/10 text-accent-blue",
-    btn: "bg-accent-blue text-pitch-black hover:bg-accent-blue-dim",
-    ratingBar: "",
-    extrasBorder: "",
-    extrasBg: "",
+    border: 'border-accent-blue/50',
+    badge: 'bg-accent-blue text-pitch-black',
+    tier: 'text-accent-blue',
+    check: 'bg-accent-blue/10 text-accent-blue',
+    btn: 'bg-accent-blue text-pitch-black hover:bg-accent-blue-dim',
+    extrasBorder: '',
+    extrasBg: '',
   },
   gold: {
-    border: "border-yellow-500/30 hover:border-yellow-500/60",
-    badge: "",
-    tier: "text-yellow-400",
-    check: "bg-yellow-500/10 text-yellow-400",
-    btn: "bg-yellow-400 text-pitch-black hover:bg-yellow-500",
-    ratingBar: "from-yellow-400 to-accent-green",
-    extrasBorder: "border-yellow-500/20",
-    extrasBg: "bg-yellow-500/5",
+    border: 'border-yellow-500/30 hover:border-yellow-500/60',
+    badge: '',
+    tier: 'text-yellow-400',
+    check: 'bg-yellow-500/10 text-yellow-400',
+    btn: 'bg-yellow-400 text-pitch-black hover:bg-yellow-500',
+    extrasBorder: 'border-yellow-500/20',
+    extrasBg: 'bg-yellow-500/5',
   },
-};
+}
 
 export default function ServicesPage() {
   return (
     <PageTransition>
       <div className="pt-24 pb-20">
+
         {/* ─── HEADER ─── */}
         <section className="container-px max-w-screen-xl mx-auto py-14 border-b border-pitch-border relative overflow-hidden">
           <div className="absolute inset-0 pitch-grid opacity-30" />
@@ -175,11 +180,9 @@ export default function ServicesPage() {
               Video Requirements
             </h2>
             <p className="text-text-secondary text-sm">
-              To produce the best possible analysis, we need the following from
-              you before we begin.
+              To produce the best possible analysis, we need the following from you before we begin.
             </p>
           </div>
-
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
             {requirements.map((req, i) => (
               <motion.div
@@ -192,25 +195,20 @@ export default function ServicesPage() {
               >
                 <div className="absolute top-0 left-0 right-0 h-0.5 bg-gradient-to-r from-accent-green to-transparent opacity-40" />
                 <div className="text-2xl mb-3">{req.icon}</div>
-                <div className="font-display font-bold text-base text-text-primary mb-2">
-                  {req.title}
-                </div>
-                <p className="text-text-secondary text-xs leading-relaxed mb-3">
-                  {req.body}
-                </p>
-                <span
-                  className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 rounded border ${
-                    req.tag === "Required"
-                      ? "text-accent-green border-accent-green/30 bg-accent-green/5"
-                      : "text-accent-blue border-accent-blue/30 bg-accent-blue/5"
-                  }`}
-                >
+                <div className="font-display font-bold text-base text-text-primary mb-2">{req.title}</div>
+                <p className="text-text-secondary text-xs leading-relaxed mb-3">{req.body}</p>
+                <span className={`font-mono text-[9px] tracking-widest uppercase px-2 py-0.5 rounded border ${
+                  req.tag === 'Required'
+                    ? 'text-accent-green border-accent-green/30 bg-accent-green/5'
+                    : 'text-accent-blue border-accent-blue/30 bg-accent-blue/5'
+                }`}>
                   {req.tag}
                 </span>
               </motion.div>
             ))}
           </div>
         </section>
+
         {/* ─── SAMPLE REPORT ─── */}
         <section className="container-px max-w-screen-xl mx-auto py-10">
           <motion.div
@@ -222,18 +220,8 @@ export default function ServicesPage() {
           >
             <div className="absolute inset-0 pitch-grid opacity-20 pointer-events-none" />
             <div className="relative w-14 h-14 rounded-xl bg-accent-green/10 border border-accent-green/30 flex items-center justify-center shrink-0">
-              <svg
-                className="w-7 h-7 text-accent-green"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={1.5}
-                  d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
-                />
+              <svg className="w-7 h-7 text-accent-green" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={1.5} d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
               </svg>
             </div>
             <div className="relative flex-1 text-center md:text-left">
@@ -242,28 +230,16 @@ export default function ServicesPage() {
                 See How We Work Before You Commit
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Download a real sample scouting report and see exactly how we
-                document a player — structure, depth and format.
+                Download a real sample scouting report and see exactly how we document a player — structure, depth and format.
               </p>
             </div>
 
-            <a
               href="/docs/vision-report1.pdf"
               download
               className="relative shrink-0 inline-flex items-center gap-2 px-8 py-4 bg-accent-green text-pitch-black font-display font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-accent-green-dim transition-colors duration-200"
             >
-              <svg
-                className="w-4 h-4"
-                fill="none"
-                stroke="currentColor"
-                viewBox="0 0 24 24"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  strokeWidth={2}
-                  d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"
-                />
+              <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4" />
               </svg>
               Download Sample
             </a>
@@ -288,15 +264,11 @@ export default function ServicesPage() {
                 Analysis Packages
               </h2>
               <p className="text-text-secondary text-sm max-w-md mx-auto">
-                Three levels of analysis. From basic performance clips to a full
-                professional scouting document.
+                Three levels of analysis. From basic performance clips to a full professional scouting document.
               </p>
               <p className="font-mono text-[11px] text-text-muted tracking-wider mt-4">
-                Plans starting from $60 · One-time or monthly ·{" "}
-                <Link
-                  href="/contact"
-                  className="text-accent-green hover:underline"
-                >
+                Plans starting from $60 · One-time or monthly ·{' '}
+                <Link href="/contact" className="text-accent-green hover:underline">
                   Contact us for a custom quote
                 </Link>
               </p>
@@ -304,7 +276,7 @@ export default function ServicesPage() {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
               {plans.map((plan, i) => {
-                const c = colorMap[plan.color];
+                const c = colorMap[plan.color]
                 return (
                   <motion.div
                     key={plan.name}
@@ -314,183 +286,64 @@ export default function ServicesPage() {
                     transition={{ delay: i * 0.1, duration: 0.5 }}
                     className={`card-base ${c.border} flex flex-col relative transition-all duration-300 hover:-translate-y-1`}
                   >
-                    {/* Badge */}
                     {plan.badge && (
-                      <div
-                        className={`absolute top-4 right-4 font-mono text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-full ${c.badge}`}
-                      >
+                      <div className={`absolute top-4 right-4 font-mono text-[9px] font-bold tracking-widest uppercase px-3 py-1 rounded-full ${c.badge}`}>
                         {plan.badge}
                       </div>
                     )}
 
-                    {/* Header */}
-                    <div
-                      className={`p-6 border-b border-pitch-border bg-gradient-to-br ${
-                        plan.color === "green"
-                          ? "from-accent-green/5"
-                          : plan.color === "blue"
-                            ? "from-accent-blue/8"
-                            : "from-yellow-500/5"
-                      } to-transparent`}
-                    >
-                      <div
-                        className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${c.tier}`}
-                      >
-                        {plan.tier}
-                      </div>
-                      <div className="font-display font-bold text-2xl text-text-primary leading-tight mb-1">
-                        {plan.name}
-                      </div>
-                      <p className="text-text-secondary text-xs mb-4">
-                        {plan.tagline}
-                      </p>
-                      <div className="font-mono text-[11px] text-text-muted">
-                        ⏱ Delivery: {plan.delivery}
-                      </div>
+                    <div className={`p-6 border-b border-pitch-border bg-gradient-to-br ${
+                      plan.color === 'green' ? 'from-accent-green/5' :
+                      plan.color === 'blue' ? 'from-accent-blue/8' :
+                      'from-yellow-500/5'
+                    } to-transparent`}>
+                      <div className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${c.tier}`}>{plan.tier}</div>
+                      <div className="font-display font-bold text-2xl text-text-primary leading-tight mb-1">{plan.name}</div>
+                      <p className="text-text-secondary text-xs mb-4">{plan.tagline}</p>
+                      <div className="font-mono text-[11px] text-text-muted">⏱ Delivery: {plan.delivery}</div>
                     </div>
 
-                    {/* Body */}
                     <div className="p-6 flex flex-col flex-1">
                       <div className="label-tag mb-3">Includes</div>
 
-                      {/* Includes */}
                       <div className="flex flex-col gap-2.5 mb-4">
                         {plan.includes.map((item, j) => (
                           <div key={j} className="flex gap-2.5 items-start">
-                            <div
-                              className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${c.check}`}
-                            >
-                              <svg
-                                width="8"
-                                height="8"
-                                viewBox="0 0 12 12"
-                                fill="none"
-                              >
-                                <path
-                                  d="M2 6l3 3 5-5"
-                                  stroke="currentColor"
-                                  strokeWidth="1.5"
-                                  strokeLinecap="round"
-                                />
+                            <div className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${c.check}`}>
+                              <svg width="8" height="8" viewBox="0 0 12 12" fill="none">
+                                <path d="M2 6l3 3 5-5" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
                               </svg>
                             </div>
-                            <div>
-                              <span
-                                className="text-text-secondary text-xs leading-relaxed"
-                                dangerouslySetInnerHTML={{ __html: item.text }}
-                              />
-                              {"sub" in item && item.sub && (
-                                <div className="flex flex-col gap-2.5 mb-4">
-                                  {plan.includes.map((item, j) => (
-                                    <div
-                                      key={j}
-                                      className="flex gap-2.5 items-start"
-                                    >
-                                      <div
-                                        className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${c.check}`}
-                                      >
-                                        <svg
-                                          width="8"
-                                          height="8"
-                                          viewBox="0 0 12 12"
-                                          fill="none"
-                                        >
-                                          <path
-                                            d="M2 6l3 3 5-5"
-                                            stroke="currentColor"
-                                            strokeWidth="1.5"
-                                            strokeLinecap="round"
-                                          />
-                                        </svg>
-                                      </div>
-                                      <span className="text-text-secondary text-xs leading-relaxed">
-                                        {item.text}
-                                      </span>
-                                    </div>
-                                  ))}
-                                </div>
-                              )}
-                            </div>
+                            <span className="text-text-secondary text-xs leading-relaxed">{item.text}</span>
                           </div>
                         ))}
                       </div>
 
-                      {/* Rating (Elite only) */}
-                      {plan.rating && (
-                        <div className="bg-pitch-muted border border-pitch-border rounded-lg p-4 mb-4">
-                          <div
-                            className={`font-mono text-[10px] tracking-widest uppercase mb-3 ${c.tier}`}
-                          >
-                            Performance Index
-                          </div>
-                          <div className="flex flex-col gap-2">
-                            {plan.rating.map((r) => (
-                              <div
-                                key={r.label}
-                                className="flex items-center gap-2"
-                              >
-                                <span className="text-text-muted text-[11px] w-20 shrink-0">
-                                  {r.label}
-                                </span>
-                                <div className="flex-1 h-1 bg-pitch-border rounded-full overflow-hidden">
-                                  <div
-                                    className={`h-full rounded-full bg-gradient-to-r ${c.ratingBar}`}
-                                    style={{ width: `${r.value}%` }}
-                                  />
-                                </div>
-                                <span
-                                  className={`font-mono text-[10px] w-6 text-right ${c.tier}`}
-                                >
-                                  {(r.value / 10).toFixed(1)}
-                                </span>
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Elite Extras */}
-                      {plan.extras && (
-                        <div
-                          className={`rounded-lg p-4 mb-4 border ${c.extrasBorder} ${c.extrasBg}`}
-                        >
-                          <div
-                            className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${c.tier}`}
-                          >
-                            ✦ Exclusivo Plan Scout
-                          </div>
-                          <div className="flex flex-col gap-2">
-                            {plan.extras.map((e) => (
-                              <div
-                                key={e}
-                                className="flex gap-2 text-text-secondary text-xs"
-                              >
-                                <span className={c.tier}>★</span>
-                                {e}
-                              </div>
-                            ))}
-                          </div>
-                        </div>
-                      )}
-
-                      {/* Not included */}
                       {plan.notIncluded && (
                         <div className="flex flex-col gap-1.5 mb-4">
                           {plan.notIncluded.map((item) => (
-                            <div
-                              key={item}
-                              className="flex gap-2 items-center text-text-muted text-xs"
-                            >
-                              <span className="text-red-500 text-sm leading-none">
-                                ✕
-                              </span>
-                              {item}
+                            <div key={item} className="flex gap-2 items-center text-text-muted text-xs">
+                              <span className="text-red-500 text-sm leading-none">✕</span>{item}
                             </div>
                           ))}
                         </div>
                       )}
 
-                      {/* CTA */}
+                      {plan.extras && (
+                        <div className={`rounded-lg p-4 mb-4 border ${c.extrasBorder} ${c.extrasBg}`}>
+                          <div className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${c.tier}`}>
+                            ✦ Exclusive Scout Plan
+                          </div>
+                          <div className="flex flex-col gap-2">
+                            {plan.extras.map((e) => (
+                              <div key={e} className="flex gap-2 text-text-secondary text-xs">
+                                <span className={c.tier}>★</span>{e}
+                              </div>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
                       <Link
                         href="/contact"
                         className={`mt-auto w-full flex items-center justify-center gap-2 py-3 rounded-lg font-display font-bold text-sm uppercase tracking-wider transition-all duration-200 ${c.btn}`}
@@ -499,11 +352,12 @@ export default function ServicesPage() {
                       </Link>
                     </div>
                   </motion.div>
-                );
+                )
               })}
             </div>
           </div>
         </section>
+
         {/* ─── AGENCIES ─── */}
         <section className="container-px max-w-screen-xl mx-auto py-10">
           <motion.div
@@ -515,81 +369,43 @@ export default function ServicesPage() {
           >
             <div className="absolute inset-0 pitch-grid opacity-10 pointer-events-none" />
             <div className="absolute top-0 right-0 w-64 h-64 bg-accent-blue/5 rounded-full blur-3xl pointer-events-none" />
-
             <div className="relative grid md:grid-cols-[1fr_auto] gap-8 items-center">
               <div>
                 <div className="flex items-center gap-3 mb-4">
                   <span className="w-6 h-px bg-accent-blue" />
-                  <span className="font-mono text-[10px] tracking-widest uppercase text-accent-blue">
-                    Partnerships
-                  </span>
+                  <span className="font-mono text-[10px] tracking-widest uppercase text-accent-blue">Partnerships</span>
                 </div>
                 <h3 className="display-heading text-2xl md:text-3xl text-text-primary mb-4">
                   🤝 For Academies & Clubs
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-6 max-w-xl">
-                  Managing a player portfolio? We offer personalised
-                  subscription plans for monthly performance tracking — keeping
-                  your players' profiles updated with real data and evolution
-                  clips every week.
+                  Managing a player portfolio? We offer personalised subscription plans for monthly performance tracking — keeping your players profiles updated with real data and evolution clips every week.
                 </p>
                 <div className="grid sm:grid-cols-3 gap-4">
                   {[
-                    {
-                      icon: "📈",
-                      title: "Periodic Evolution Reports",
-                      body: "Regular analysis updates tracking player development over time.",
-                    },
-                    {
-                      icon: "⚙️",
-                      title: "Key Metrics Extraction",
-                      body: "Professional metrics pulled directly from match footage every round.",
-                    },
-                    {
-                      icon: "📊",
-                      title: "Cumulative Progress",
-                      body: "A clear record of growth and tactical evolution across the season.",
-                    },
+                    { icon: '📈', title: 'Periodic Evolution Reports', body: 'Regular analysis updates tracking player development over time.' },
+                    { icon: '⚙️', title: 'Key Metrics Extraction', body: 'Professional metrics pulled directly from match footage every round.' },
+                    { icon: '📊', title: 'Cumulative Progress', body: 'A clear record of growth and tactical evolution across the season.' },
                   ].map((item) => (
-                    <div
-                      key={item.title}
-                      className="bg-pitch-card border border-pitch-border rounded-xl p-4"
-                    >
+                    <div key={item.title} className="bg-pitch-card border border-pitch-border rounded-xl p-4">
                       <div className="text-xl mb-2">{item.icon}</div>
-                      <div className="font-display font-bold text-sm text-text-primary mb-1">
-                        {item.title}
-                      </div>
-                      <p className="text-text-secondary text-xs leading-relaxed">
-                        {item.body}
-                      </p>
+                      <div className="font-display font-bold text-sm text-text-primary mb-1">{item.title}</div>
+                      <p className="text-text-secondary text-xs leading-relaxed">{item.body}</p>
                     </div>
                   ))}
                 </div>
               </div>
-
               <div className="shrink-0 flex flex-col items-center md:items-end gap-3">
                 <Link
                   href="/contact"
                   className="inline-flex items-center gap-2 px-8 py-4 bg-accent-blue text-pitch-black font-display font-bold text-sm uppercase tracking-wider rounded-xl hover:bg-accent-blue-dim transition-colors duration-200"
                 >
                   Contact for Partner Plan
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M17 8l4 4m0 0l-4 4m4-4H3"
-                    />
+                  <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8l4 4m0 0l-4 4m4-4H3" />
                   </svg>
                 </Link>
-                <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">
-                  Custom pricing available
-                </span>
+                <span className="font-mono text-[10px] text-text-muted tracking-widest uppercase">Custom pricing available</span>
               </div>
             </div>
           </motion.div>
@@ -609,18 +425,14 @@ export default function ServicesPage() {
                 Not sure which package is right for you?
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
-                Send us a message and we'll help you choose based on your goals
-                - whether you're preparing for a transfer or trial, looking to
-                attract interest from clubs, or simply want to understand your
-                game better.
+                Send us a message and we will help you choose based on your goals — whether you are preparing for a transfer or trial, looking to attract interest from clubs, or simply want to understand your game better.
               </p>
             </div>
-            <Link href="/contact" className="btn-primary shrink-0">
-              Contact Us →
-            </Link>
+            <Link href="/contact" className="btn-primary shrink-0">Contact Us →</Link>
           </motion.div>
         </section>
+
       </div>
     </PageTransition>
-  );
+  )
 }
