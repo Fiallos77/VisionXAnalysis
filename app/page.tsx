@@ -97,7 +97,7 @@ export default function HomePage() {
             >
               Vision X Analysis is an independent football scouting and video
               analysis project. We break down player profiles, tactical patterns
-              and positional behaviours across leagues and levels — with
+              and positional behaviours across leagues and levels - with
               precision, context and objectivity.
             </motion.p>
 
@@ -144,12 +144,14 @@ export default function HomePage() {
                 <span className="label-tag">Our Impact</span>
               </div>
               <h2 className="display-heading text-2xl md:text-3xl xl:text-4xl text-text-primary leading-tight mb-4">
-                More than{' '}
-                <span className="text-gradient-green">Professional Standards</span>{' '}
+                More than{" "}
+                <span className="text-gradient-green">
+                  Professional Standards
+                </span>{" "}
                 for Every Player
               </h2>
               <p className="text-text-secondary text-sm md:text-base leading-relaxed">
-                In the modern game, being talented isn't enough — you need to be
+                In the modern game, being talented isn't enough - you need to be
                 seen. Vision X Analysis applies rigorous video analysis and
                 data-driven scouting to decode player performance with
                 professional precision. By delivering high-level technical
@@ -170,7 +172,7 @@ export default function HomePage() {
             <SectionHeader
               tag="Players"
               title="Profiled Players"
-              subtitle="Athletes we have observed, analysed and documented across multiple performances."
+              subtitle="Players we have individually analysed, profiled and documented across multiple matches."
             />
             <Link
               href="/players"
@@ -214,7 +216,7 @@ export default function HomePage() {
               Experience at Elite Institutions
             </h2>
             <p className="text-text-secondary text-sm md:text-base max-w-xl mx-auto leading-relaxed">
-              Our analysts have worked within and alongside these institutions —
+              Our analysts have worked within and alongside these institutions -
               giving us direct insight into what elite clubs and academies
               demand from a player profile.
             </p>
@@ -263,12 +265,12 @@ export default function HomePage() {
           >
             <SectionHeader
               tag="What We Do"
-              title="Analysis Built on Observation"
-              subtitle="We watch football with intent. Every profile begins with hours of live and recorded observation before a frame is cut."
+              title="Analysis Built on Detail"
+              subtitle="We analyse football with intent. Every profile begins with hours of video review before a single data point is recorded."
             />
             <div className="mt-8 space-y-4">
               {[
-                "Match observation across multiple fixtures",
+                "Multi-match video analysis",
                 "Selective action and pattern capture",
                 "Frame-by-frame video breakdown",
                 "Contextual tactical interpretation",
@@ -305,12 +307,12 @@ export default function HomePage() {
                 Vision X Principle
               </div>
               <blockquote className="font-display text-2xl md:text-3xl font-bold leading-tight text-text-primary mb-6">
-                "Observation before assumption. Context before conclusion."
+                "Detail before data. Context before conclusion."
               </blockquote>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Every analysis produced by Vision X is grounded in sustained
                 observation. We do not shortcut match intelligence with
-                statistics alone. The work starts before the video does.
+                statistics alone. Every number has a moment behind it.
               </p>
               <div className="mt-6 pt-6 border-t border-pitch-border flex items-center gap-3">
                 <div className="w-2 h-2 rounded-full bg-accent-green" />

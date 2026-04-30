@@ -27,24 +27,22 @@ const requirements = [
   {
     icon: "📁",
     title: "Multiple Matches",
-    body: "For PRO and ELITE packages, 2–3 different matches are strongly recommended for a representative profile.",
+    body: "For Technical and Scout packages, 2–3 different matches are strongly recommended for a representative profile.",
     tag: "Recommended",
   },
 ];
 
 const plans = [
   {
-    tier: "🟢 ID",
-    name: "Identification",
+    tier: "🔍 ID",
+    name: "Highlight",
     tagline: "For the player who needs to be seen",
     delivery: "48 hours",
-    tools: "Nacsport · Python · Power BI · SQL",
     color: "green",
     includes: [
-      { text: "<strong>1 match</strong> analysed" },
-      { text: "Compilated <strong>ball</strong> involvements" },
-      { text: "<strong>Highlight video</strong> (3–5 min)" },
-      { text: "<strong>Brief text comments</strong> on key actions" },
+      { text: "Match video compilation focused on your actions" },
+      { text: "Player profile document" },
+      { text: "Ready to share with clubs and agents" },
     ],
     notIncluded: [
       "Technical written analysis",
@@ -57,68 +55,50 @@ const plans = [
     rating: null,
   },
   {
-    tier: "📊 ANALYST",
+    tier: "📊 TECHNICAL",
     name: "Technical Breakdown",
-    tagline: "For the player already on the radar",
+    tagline: "For the player who wants to understand their game",
     delivery: "3–4 days",
-    tools: "Nacsport · Python · Power BI · SQL",
     color: "blue",
     badge: "Most Popular",
     includes: [
-      { text: "<strong>1 full match </strong> technical analysis" },
-      {
-        text: "<strong>Technical analysis</strong> covering:",
-        sub: [
-          "Positioning & movement",
-          "Decision making",
-          "Actions with the ball",
-          "Defensive actions",
-        ],
-      },
-      { text: "<strong>Highlight video</strong> included" },
-      { text: "<strong>PDF report</strong> (1–2 pages)" },
+      { text: "Multi-match performance analysis" },
+      { text: "Technical and tactical data report" },
+      { text: "Visual breakdown of your performance" },
+      { text: "Highlight video included" },
+      { text: "Available as one-time or monthly" },
     ],
     notIncluded: [
-      "Multi-match analysis",
       "Full scout report",
       "Player rating by category",
       "Shareable profile page",
       "Direct link for clubs & agents",
+      "Quarterly accumulated report",
     ],
     extras: null,
     rating: null,
   },
   {
     tier: "🛡 SCOUT",
-    name: "Full Intelligence Report",
-    tagline: "The definitive document for a transfer",
-    delivery: "5–10 days",
-    tools: "Nacsport · Python · Power BI · SQL",
+    name: "Scout Report",
+    tagline: "For the player ready to move to the next level",
+    delivery: "5–7 days",
     color: "gold",
     includes: [
-      { text: "<strong>2–3 matches</strong> analysed" },
+      { text: "In-depth analysis across multiple matches" },
+      { text: "Professional metrics and tactical profile" },
       {
-        text: "<strong>Full scout report:</strong>",
-        sub: [
-          "Strengths & weaknesses",
-          "Tactical profile",
-          "Positional comparison",
-          "Improvement recommendations",
-        ],
+        text: "Full scouting document — strengths, areas to improve, player projection",
       },
-      { text: "<strong>Professional clips</strong> + highlight video" },
+      { text: "Professional highlight video and key clips" },
     ],
     notIncluded: null,
     extras: [
-      "Shareable player profile page on visionx.com",
-      "Downloadable PDF scout document",
+      "Accumulated Scout Report every 3 months - professional document ready for clubs and agents",
+      "Monthly evolution analysis - tracking your progress throughout the season",
+      "Available as a monthly subscription",
     ],
-    rating: [
-      { label: "Technical", value: 82 },
-      { label: "Positioning", value: 75 },
-      { label: "Decisions", value: 70 },
-      { label: "Physical", value: 88 },
-    ],
+    rating: null,
   },
 ];
 
@@ -311,6 +291,15 @@ export default function ServicesPage() {
                 Three levels of analysis. From basic performance clips to a full
                 professional scouting document.
               </p>
+              <p className="font-mono text-[11px] text-text-muted tracking-wider mt-4">
+                Plans starting from $60 · One-time or monthly ·{" "}
+                <Link
+                  href="/contact"
+                  className="text-accent-green hover:underline"
+                >
+                  Contact us for a custom quote
+                </Link>
+              </p>
             </motion.div>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-5 items-stretch">
@@ -357,9 +346,6 @@ export default function ServicesPage() {
                       </p>
                       <div className="font-mono text-[11px] text-text-muted">
                         ⏱ Delivery: {plan.delivery}
-                      </div>
-                      <div className="font-mono text-[11px] text-accent-blue/70 mt-1">
-                        🛠 {plan.tools}
                       </div>
                     </div>
 
@@ -453,7 +439,7 @@ export default function ServicesPage() {
                           <div
                             className={`font-mono text-[10px] tracking-widest uppercase mb-2 ${c.tier}`}
                           >
-                            ✦ Elite Exclusives
+                            ✦ Exclusivo Plan Scout
                           </div>
                           <div className="flex flex-col gap-2">
                             {plan.extras.map((e) => (
@@ -521,7 +507,7 @@ export default function ServicesPage() {
                   </span>
                 </div>
                 <h3 className="display-heading text-2xl md:text-3xl text-text-primary mb-4">
-                  🤝 Alliances for Agencies & Academies
+                  🤝 For Academies & Clubs
                 </h3>
                 <p className="text-text-secondary text-sm leading-relaxed mb-6 max-w-xl">
                   Managing a player portfolio? We offer personalised
@@ -606,9 +592,9 @@ export default function ServicesPage() {
               </div>
               <p className="text-text-secondary text-sm leading-relaxed">
                 Send us a message and we'll help you choose based on your goals
-                — whether you're preparing for trials, looking to attract
-                interest from clubs, or simply want to understand your game
-                better.
+                - whether you're preparing for a transfer or trial, looking to
+                attract interest from clubs, or simply want to understand your
+                game better.
               </p>
             </div>
             <Link href="/contact" className="btn-primary shrink-0">
