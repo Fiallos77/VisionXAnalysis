@@ -380,14 +380,32 @@ export default function ServicesPage() {
                                 dangerouslySetInnerHTML={{ __html: item.text }}
                               />
                               {"sub" in item && item.sub && (
-                                <div className="mt-1.5 flex flex-col gap-1 pl-1">
-                                  {item.sub.map((s) => (
+                                <div className="flex flex-col gap-2.5 mb-4">
+                                  {plan.includes.map((item, j) => (
                                     <div
-                                      key={s}
-                                      className="flex gap-1.5 text-text-muted text-[11px]"
+                                      key={j}
+                                      className="flex gap-2.5 items-start"
                                     >
-                                      <span className="text-text-muted">→</span>
-                                      {s}
+                                      <div
+                                        className={`w-4 h-4 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5 ${c.check}`}
+                                      >
+                                        <svg
+                                          width="8"
+                                          height="8"
+                                          viewBox="0 0 12 12"
+                                          fill="none"
+                                        >
+                                          <path
+                                            d="M2 6l3 3 5-5"
+                                            stroke="currentColor"
+                                            strokeWidth="1.5"
+                                            strokeLinecap="round"
+                                          />
+                                        </svg>
+                                      </div>
+                                      <span className="text-text-secondary text-xs leading-relaxed">
+                                        {item.text}
+                                      </span>
                                     </div>
                                   ))}
                                 </div>
