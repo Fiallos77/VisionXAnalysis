@@ -62,14 +62,14 @@ export interface BodyZone {
 
 export const players: Player[] = [
   {
-    id: "marcus-elroy",
+    id: "ali-auglah",
     name: "Ali Auglah",
     position: "Central Midfielder",
-    age: 22,
-    club: "FC Altheim",
+    age: 24,
+    club: "Central Coast Australia",
     foot: "Right",
-    height: "1.82m",
-    nationality: "German",
+    height: "1.75m",
+    nationality: "Iraq",
     attributes: {
       technical: 7.8,
       positioning: 8.0,
@@ -77,10 +77,9 @@ export const players: Player[] = [
       physical: 7.0,
       defending: 6.8,
     },
-    imageUrl:
-      '/images/AliAuglah.jpg',
+    imageUrl: "/images/AliAuglah.jpg",
     description:
-      "Marcus Elroy is a technically gifted central midfielder with exceptional spatial awareness and the ability to control tempo in tight spaces. His progressive passing and press-resistance make him a key asset in build-up phases. Scouts from multiple second-division clubs have monitored him throughout the 2023/24 season.",
+      "Ali Auglah is a technically gifted central midfielder with exceptional spatial awareness and the ability to control tempo in tight spaces. His progressive passing and press-resistance make him a key asset in build-up phases. Scouts from multiple second-division clubs have monitored him throughout the 2023/24 season.",
     strengths: [
       "High press-resistance under pressure",
       "Progressive carrying in transition",
@@ -226,8 +225,7 @@ export const players: Player[] = [
       physical: 7.0,
       defending: 6.8,
     },
-    imageUrl:
-      '/images/penningtong.jpg',
+    imageUrl: "/images/penningtong.jpg",
     description:
       "Penningtong is an attack-minded left back with remarkable crossing ability and inverted movement patterns. Operating in a back-four, he regularly supports the winger to create overloads on the left flank. Still developing his defensive positioning, but his offensive output at 19 is notable.",
     strengths: [
@@ -345,11 +343,11 @@ export const players: Player[] = [
     ],
   },
   {
-    id: "mateo-diez",
+    id: "joel-almache",
     name: "Joel Almache",
     position: "Centre Forward",
-    age: 22,
-    club: "Deportivo Torino",
+    age: 28,
+    club: "Deportivo Quito",
     foot: "Left",
     height: "1.74m",
     nationality: "Ecuadorian",
@@ -852,7 +850,7 @@ export const players: Player[] = [
 export const analyses: Analysis[] = [
   {
     id: "elroy-pressing",
-    playerId: "marcus-elroy",
+    playerId: "ali-auglah",
     playerName: "Marcus Elroy",
     position: "Central Midfielder",
     title: "Press-Resistance & Progressive Carrying",
@@ -880,8 +878,8 @@ export const analyses: Analysis[] = [
   },
   {
     id: "varga-holdUp",
-    playerId: "Mateo-Diez",
-    playerName: "Mateo Diez",
+    playerId: "Joel-Almache",
+    playerName: "Joel Almache",
     position: "Centre Forward",
     title: "Linking Play as a Reference Point",
     thumbnailUrl:
