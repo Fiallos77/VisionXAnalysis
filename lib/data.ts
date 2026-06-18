@@ -69,7 +69,7 @@ export const players: Player[] = [
     club: "Central Coast Australia",
     foot: "Right",
     height: "1.75m",
-    nationality: "Iraq",
+    nationality: "Iraqui",
     attributes: {
       technical: 7.8,
       positioning: 8.0,
